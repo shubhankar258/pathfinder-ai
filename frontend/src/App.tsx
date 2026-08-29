@@ -5,6 +5,7 @@ import { DiscoveryView } from './views/DiscoveryView';
 import { ProfileCardsView } from './views/ProfileCardsView';
 import { GenerationView } from './views/GenerationView';
 import { DashboardView } from './views/DashboardView';
+import { Threads } from './components/Threads';
 import { Compass, Sparkles, Cpu, Layers } from 'lucide-react';
 
 type AppScreen = 'discovery' | 'profile_cards' | 'generation' | 'dashboard';
@@ -74,7 +75,28 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+      {/* Interactive WebGL Threads Background from React Bits */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          pointerEvents: 'none',
+          zIndex: 0,
+          opacity: 0.38,
+        }}
+      >
+        <Threads
+          color={[0.98, 0.45, 0.09]}
+          amplitude={1.25}
+          distance={0.12}
+          enableMouseInteraction={true}
+        />
+      </div>
+
       {/* HUD Navigation Bar */}
       <header
         style={{
@@ -83,7 +105,7 @@ export const App: React.FC = () => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'rgba(9, 11, 16, 0.9)',
+          background: 'rgba(9, 11, 16, 0.88)',
           backdropFilter: 'blur(16px)',
           position: 'sticky',
           top: 0,
@@ -168,7 +190,7 @@ export const App: React.FC = () => {
       </header>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
         {screen === 'discovery' && (
           <DiscoveryView onGoalSubmit={handleGoalSubmit} isLoading={isLoading} />
         )}
