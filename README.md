@@ -1,9 +1,10 @@
 <div align="center">
   
-# Pathfinder — Adaptive AI Learning Path Engine
+# Pathfinder — Adaptive AI Learning Path Engine (v1.0)
 
 *An explainable, prerequisite-aware learning curriculum engine that converts natural-language career goals into deterministic roadmaps and dynamically adapts to learner performance, confidence, and changing interests.*
 
+[![Version](https://img.shields.io/badge/Version-1.0.0-f97316?style=for-the-badge)](https://github.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -17,7 +18,7 @@
 
 ## Introduction
 
-This repository contains a production-grade prototype of **Pathfinder**, an adaptive AI learning companion designed to eliminate arbitrary curriculum generation and hallucinated prerequisite sequencing.
+This repository contains the **Version 1.0 (v1.0.0)** production-grade prototype of **Pathfinder**, an adaptive AI learning companion designed to eliminate arbitrary curriculum generation and hallucinated prerequisite sequencing.
 
 ### The Governing Architectural Principle
 
@@ -82,7 +83,7 @@ pathfinder/
 
 ## Getting Started Locally
 
-Follow the instructions below to run the complete Pathfinder stack locally.
+Follow the instructions below to run the complete Pathfinder v1.0 stack locally.
 
 ### Prerequisites
 - Python 3.10+
@@ -164,5 +165,5 @@ To effectively evaluate the system, follow the canonical test scenarios:
 ---
 
 <div align="center">
-  <i>Pathfinder — Adaptive AI Learning Path Engine. Built with deterministic graph rigor and modern glassmorphism aesthetics.</i>
+  <i>Pathfinder v1.0 — Adaptive AI Learning Path Engine. Built with deterministic graph rigor and modern glassmorphism aesthetics.</i>
 </div>
