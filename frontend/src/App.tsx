@@ -6,6 +6,7 @@ import { ProfileCardsView } from './views/ProfileCardsView';
 import { GenerationView } from './views/GenerationView';
 import { DashboardView } from './views/DashboardView';
 import { Threads } from './components/Threads';
+import { CardNav, CardNavItem } from './components/CardNav';
 import { Compass, Sparkles, Cpu, Layers } from 'lucide-react';
 
 type AppScreen = 'discovery' | 'profile_cards' | 'generation' | 'dashboard';
@@ -74,6 +75,40 @@ export const App: React.FC = () => {
     setRoadmapData(null);
   };
 
+  // CardNav Menu Items
+  const navItems: CardNavItem[] = [
+    {
+      label: 'Curriculum Engine',
+      bgColor: 'rgba(38, 24, 16, 0.95)',
+      textColor: '#ffffff',
+      links: [
+        { label: '36 Skill DAG Graph', ariaLabel: '36 Skill DAG Graph' },
+        { label: 'Deterministic Kahn Sort', ariaLabel: 'Kahn Topological Sort' },
+        { label: 'Gap Traversal Engine', ariaLabel: 'Gap Traversal' },
+      ],
+    },
+    {
+      label: 'Adaptive System',
+      bgColor: 'rgba(25, 30, 45, 0.95)',
+      textColor: '#ffffff',
+      links: [
+        { label: 'Statistics Checkpoint Quiz', ariaLabel: 'Checkpoint Quiz' },
+        { label: '5-Factor Scoring (TimeFit)', ariaLabel: '5-Factor Recommender' },
+        { label: 'Track Swap (NLP ↔ Vision)', ariaLabel: 'Track Swap' },
+      ],
+    },
+    {
+      label: 'Resources & Docs',
+      bgColor: 'rgba(28, 20, 36, 0.95)',
+      textColor: '#ffffff',
+      links: [
+        { label: 'Priya Canonical Flow', onClick: handleReset, ariaLabel: 'Priya Persona Flow' },
+        { label: 'FastAPI Interactive Docs', href: 'http://127.0.0.1:8000/docs', ariaLabel: 'API Docs' },
+        { label: 'Backend Health Check', href: 'http://127.0.0.1:8000/api/health', ariaLabel: 'API Health' },
+      ],
+    },
+  ];
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
       {/* Interactive WebGL Threads Background from React Bits */}
@@ -97,42 +132,26 @@ export const App: React.FC = () => {
         />
       </div>
 
-      {/* HUD Navigation Bar */}
-      <header
-        style={{
-          borderBottom: '1px solid var(--border-subtle)',
-          padding: '14px 28px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: 'rgba(9, 11, 16, 0.88)',
-          backdropFilter: 'blur(16px)',
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-        }}
-      >
-        <div
-          onClick={handleReset}
-          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
-        >
-          <div
-            style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #f97316, #f59e0b)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 0 18px var(--primary-glow)',
-            }}
-          >
-            <Compass size={22} color="#ffffff" />
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '1.2rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#ffffff' }}>
+      {/* React Bits CardNav Header */}
+      <header style={{ padding: '20px 24px 10px', position: 'sticky', top: 0, zIndex: 200 }}>
+        <CardNav
+          logo={
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  background: 'linear-gradient(135deg, #f97316, #f59e0b)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 0 14px var(--primary-glow)',
+                }}
+              >
+                <Compass size={18} color="#ffffff" />
+              </div>
+              <span style={{ fontSize: '1.15rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#ffffff' }}>
                 Pathfinder
               </span>
               <span
@@ -141,52 +160,22 @@ export const App: React.FC = () => {
                   background: 'rgba(245, 158, 11, 0.16)',
                   color: '#fbbf24',
                   border: '1px solid rgba(245, 158, 11, 0.35)',
-                  fontSize: '0.68rem',
+                  fontSize: '0.66rem',
                   padding: '2px 7px',
                 }}
               >
-                v1.0 Engine
+                v1.0
               </span>
             </div>
-          </div>
-        </div>
-
-        {/* Engine status pills */}
-        <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: '0.82rem',
-              color: 'var(--text-secondary)',
-              background: 'rgba(255, 255, 255, 0.04)',
-              padding: '5px 12px',
-              borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--border-subtle)',
-            }}
-          >
-            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981' }} />
-            <span>36 DAG Nodes</span>
-          </div>
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: '0.82rem',
-              color: '#fdba74',
-              background: 'rgba(249, 115, 22, 0.14)',
-              padding: '5px 12px',
-              borderRadius: 'var(--radius-full)',
-              border: '1px solid rgba(249, 115, 22, 0.3)',
-            }}
-          >
-            <Sparkles size={13} color="#f97316" />
-            <span>Persona: <strong>Priya</strong></span>
-          </div>
-        </div>
+          }
+          items={navItems}
+          baseColor="rgba(17, 20, 30, 0.92)"
+          menuColor="#fdba74"
+          buttonBgColor="#f97316"
+          buttonTextColor="#ffffff"
+          ctaText={screen === 'discovery' ? 'Priya Demo' : 'New Goal'}
+          onCtaClick={handleReset}
+        />
       </header>
 
       {/* Main Content Area */}
