@@ -1,0 +1,45 @@
+{
+  "statistics_probability": {
+    "skill_id": "statistics_probability",
+    "skill_name": "Statistics & Probability",
+    "passing_score": 0.5,
+    "questions": [
+      {
+        "id": "q1",
+        "question": "A medical diagnostic test has a 95% sensitivity and 90% specificity. If a disease has a 1% prevalence in the population, what happens to the probability that a person who tests positive actually has the disease (Positive Predictive Value)?",
+        "options": [
+          "It is extremely high (over 90%) because sensitivity is 95%.",
+          "It is relatively low (around 8.7%) due to the low base rate of the disease (Bayes Theorem).",
+          "It is exactly equal to the specificity (90%).",
+          "It cannot be calculated without knowing the sample size."
+        ],
+        "correct_index": 1,
+        "explanation": "By Bayes' Theorem, with a low prior (1%), false positives from the 99% healthy majority outnumber true positives, making the posterior probability ~8.7%."
+      },
+      {
+        "id": "q2",
+        "question": "According to the Central Limit Theorem (CLT), which of the following statements is true regarding the sampling distribution of the sample mean?",
+        "options": [
+          "The population itself must be normally distributed for CLT to hold.",
+          "The sampling distribution of the mean approaches a normal distribution as sample size n increases, regardless of the population distribution shape (given finite variance).",
+          "The standard deviation of the sample mean increases as sample size increases.",
+          "CLT applies only to discrete distributions like Poisson and Binomial."
+        ],
+        "correct_index": 1,
+        "explanation": "The CLT guarantees that for sufficiently large sample sizes, sample means are approximately normally distributed with standard error σ/√n."
+      },
+      {
+        "id": "q3",
+        "question": "In hypothesis testing, what is a Type I error (α) and how does it relate to p-values?",
+        "options": [
+          "Failing to reject a false null hypothesis; occurs when p-value > 0.05.",
+          "Rejecting a true null hypothesis (false positive); we reject the null when the p-value is less than the significance level α.",
+          "Incorrectly calculating the standard error of the estimate.",
+          "The probability of correctly accepting an alternative hypothesis (statistical power)."
+        ],
+        "correct_index": 1,
+        "explanation": "A Type I error is rejecting the null hypothesis when it is actually true (false positive rate α)."
+      }
+    ]
+  }
+}

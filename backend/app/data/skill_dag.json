@@ -1,0 +1,291 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "python_basics",
+      "name": "Python Fundamentals",
+      "description": "Core syntax, data types, control flow, functions, and standard library.",
+      "domain": "Programming",
+      "phase_hint": 1
+    },
+    {
+      "id": "python_oop",
+      "name": "Python OOP & Software Practices",
+      "description": "Object-oriented programming, classes, inheritance, modular code, and unit testing in Python.",
+      "domain": "Programming",
+      "phase_hint": 1
+    },
+    {
+      "id": "numpy_pandas",
+      "name": "NumPy & Pandas Data Manipulation",
+      "description": "Vectorized computations, DataFrame operations, data wrangling, and tabular analysis.",
+      "domain": "Data Engineering",
+      "phase_hint": 1
+    },
+    {
+      "id": "sql_relational_databases",
+      "name": "SQL & Relational Databases",
+      "description": "Querying, joins, aggregations, schema design, and indexing for data extraction.",
+      "domain": "Data Engineering",
+      "phase_hint": 1
+    },
+    {
+      "id": "git_version_control",
+      "name": "Git & Collaborative Workflows",
+      "description": "Branching, merging, pull requests, and version control for production codebases.",
+      "domain": "Software Engineering",
+      "phase_hint": 1
+    },
+    {
+      "id": "data_structures_algorithms",
+      "name": "Data Structures & Algorithms",
+      "description": "Time/space complexity, hash maps, trees, sorting, and algorithmic problem solving.",
+      "domain": "Computer Science",
+      "phase_hint": 1
+    },
+    {
+      "id": "linear_algebra",
+      "name": "Linear Algebra for ML",
+      "description": "Vectors, matrices, dot products, eigenvalues, eigenvectors, and matrix decomposition.",
+      "domain": "Mathematics",
+      "phase_hint": 2
+    },
+    {
+      "id": "calculus_optimization",
+      "name": "Multivariate Calculus & Optimization",
+      "description": "Partial derivatives, gradients, chain rule, and gradient descent optimization.",
+      "domain": "Mathematics",
+      "phase_hint": 2
+    },
+    {
+      "id": "statistics_probability",
+      "name": "Statistics & Probability",
+      "description": "Descriptive statistics, probability distributions, hypothesis testing, Bayes theorem, and sampling.",
+      "domain": "Mathematics",
+      "phase_hint": 2
+    },
+    {
+      "id": "exploratory_data_analysis",
+      "name": "Exploratory Data Analysis & Visualization",
+      "description": "Data cleaning, feature distribution analysis, correlation heatmaps, and visualization with Matplotlib/Seaborn.",
+      "domain": "Data Science",
+      "phase_hint": 2
+    },
+    {
+      "id": "ml_fundamentals",
+      "name": "Machine Learning Fundamentals",
+      "description": "Core ML formulation, loss functions, train/test split, overfitting, and inductive bias.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "supervised_learning",
+      "name": "Supervised Learning Algorithms",
+      "description": "Linear regression, logistic regression, decision trees, random forests, and SVMs.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "unsupervised_learning",
+      "name": "Unsupervised Learning & Clustering",
+      "description": "K-Means, hierarchical clustering, PCA dimensionality reduction, and anomaly detection.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "model_evaluation",
+      "name": "Model Evaluation & Validation",
+      "description": "Cross-validation, ROC-AUC, precision-recall, confusion matrices, and hyperparameter tuning.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "feature_engineering",
+      "name": "Feature Engineering & Preprocessing",
+      "description": "Encoding, scaling, imputation, feature selection, and leakage prevention pipelines.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "regularization",
+      "name": "Regularization & Bias-Variance Tradeoff",
+      "description": "L1/L2 regularization, elastic net, dropout, and balancing model complexity.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "ensemble_methods",
+      "name": "Ensemble Methods & Gradient Boosting",
+      "description": "Bagging, boosting, XGBoost, LightGBM, and CatBoost for high performance models.",
+      "domain": "Machine Learning",
+      "phase_hint": 3
+    },
+    {
+      "id": "deep_learning_basics",
+      "name": "Deep Learning & Neural Networks",
+      "description": "Perceptrons, multi-layer networks, backpropagation, activation functions, and PyTorch/TensorFlow.",
+      "domain": "Deep Learning",
+      "phase_hint": 4
+    },
+    {
+      "id": "portfolio_project",
+      "name": "ML Portfolio Project",
+      "description": "End-to-end applied ML project from problem formulation to validated pipeline and documentation.",
+      "domain": "Applied ML",
+      "phase_hint": 4
+    },
+    {
+      "id": "nlp_specialization",
+      "name": "NLP Specialization",
+      "description": "Natural language processing pipelines, tokenization, embeddings, text classification, and modern LLMs.",
+      "domain": "NLP",
+      "phase_hint": 5
+    },
+    {
+      "id": "text_processing_embeddings",
+      "name": "Text Processing & Embeddings",
+      "description": "TF-IDF, Word2Vec, sentence embeddings, semantic search, and vector databases.",
+      "domain": "NLP",
+      "phase_hint": 5
+    },
+    {
+      "id": "transformers_llms",
+      "name": "Transformers & Large Language Models",
+      "description": "Self-attention architecture, BERT, GPT, fine-tuning, prompting, and RAG pipelines.",
+      "domain": "NLP",
+      "phase_hint": 5
+    },
+    {
+      "id": "cv_specialization",
+      "name": "Computer Vision Specialization",
+      "description": "Image processing, spatial convolutions, feature extraction, and modern vision architectures.",
+      "domain": "Computer Vision",
+      "phase_hint": 5
+    },
+    {
+      "id": "cnn_image_processing",
+      "name": "Convolutional Neural Networks & Vision",
+      "description": "CNN architectures (ResNet, VGG), transfer learning, data augmentation, and PyTorch Vision.",
+      "domain": "Computer Vision",
+      "phase_hint": 5
+    },
+    {
+      "id": "object_detection_segmentation",
+      "name": "Object Detection & Segmentation",
+      "description": "YOLO, Faster R-CNN, semantic/instance segmentation, and real-time vision pipelines.",
+      "domain": "Computer Vision",
+      "phase_hint": 5
+    },
+    {
+      "id": "time_series_forecasting",
+      "name": "Time Series Analysis & Forecasting",
+      "description": "ARIMA, Prophet, exponential smoothing, and temporal deep learning models.",
+      "domain": "Applied ML",
+      "phase_hint": 5
+    },
+    {
+      "id": "reinforcement_learning",
+      "name": "Reinforcement Learning Basics",
+      "description": "Markov decision processes, Q-learning, policy gradients, and actor-critic algorithms.",
+      "domain": "Reinforcement Learning",
+      "phase_hint": 5
+    },
+    {
+      "id": "mlops_basics",
+      "name": "MLOps & Experiment Tracking",
+      "description": "MLflow, experiment tracking, data versioning (DVC), model registry, and reproducible pipelines.",
+      "domain": "Engineering",
+      "phase_hint": 6
+    },
+    {
+      "id": "model_deployment_api",
+      "name": "Model Serving & API Development",
+      "description": "Packaging models into FastAPI microservices, Docker containerization, and low-latency inference.",
+      "domain": "Engineering",
+      "phase_hint": 6
+    },
+    {
+      "id": "cloud_ml_platforms",
+      "name": "Cloud ML Infrastructure",
+      "description": "Cloud deployment on AWS SageMaker / GCP Vertex AI, autoscaling, and monitoring in production.",
+      "domain": "Engineering",
+      "phase_hint": 6
+    },
+    {
+      "id": "capstone",
+      "name": "End-to-End ML Capstone",
+      "description": "Production-grade, domain-specialized capstone project with automated pipelines and deployed inference API.",
+      "domain": "Applied ML",
+      "phase_hint": 6
+    },
+    {
+      "id": "ml_engineer_target",
+      "name": "Machine Learning Engineer Competency",
+      "description": "Target competency synthesis across software engineering, mathematical foundations, ML modeling, and deployment.",
+      "domain": "Target Role",
+      "phase_hint": 6
+    },
+    {
+      "id": "data_scientist_target",
+      "name": "Data Scientist Competency",
+      "description": "Target competency synthesis across statistics, EDA, business modeling, and supervised learning.",
+      "domain": "Target Role",
+      "phase_hint": 6
+    },
+    {
+      "id": "nlp_engineer_target",
+      "name": "NLP Engineer Competency",
+      "description": "Target competency synthesis across text processing, transformers, embeddings, and LLM engineering.",
+      "domain": "Target Role",
+      "phase_hint": 6
+    },
+    {
+      "id": "cv_engineer_target",
+      "name": "Computer Vision Engineer Competency",
+      "description": "Target competency synthesis across image processing, CNN architectures, object detection, and edge deployment.",
+      "domain": "Target Role",
+      "phase_hint": 6
+    }
+  ],
+  "links": [
+    { "source": "python_basics", "target": "python_oop" },
+    { "source": "python_basics", "target": "numpy_pandas" },
+    { "source": "python_basics", "target": "sql_relational_databases" },
+    { "source": "python_basics", "target": "git_version_control" },
+    { "source": "python_basics", "target": "data_structures_algorithms" },
+    { "source": "numpy_pandas", "target": "exploratory_data_analysis" },
+    { "source": "numpy_pandas", "target": "statistics_probability" },
+    { "source": "linear_algebra", "target": "deep_learning_basics" },
+    { "source": "calculus_optimization", "target": "deep_learning_basics" },
+    { "source": "statistics_probability", "target": "ml_fundamentals" },
+    { "source": "statistics_probability", "target": "exploratory_data_analysis" },
+    { "source": "ml_fundamentals", "target": "supervised_learning" },
+    { "source": "ml_fundamentals", "target": "unsupervised_learning" },
+    { "source": "ml_fundamentals", "target": "model_evaluation" },
+    { "source": "ml_fundamentals", "target": "feature_engineering" },
+    { "source": "ml_fundamentals", "target": "regularization" },
+    { "source": "supervised_learning", "target": "ensemble_methods" },
+    { "source": "model_evaluation", "target": "portfolio_project" },
+    { "source": "ml_fundamentals", "target": "deep_learning_basics" },
+    { "source": "deep_learning_basics", "target": "neural_networks" },
+    { "source": "portfolio_project", "target": "nlp_specialization" },
+    { "source": "portfolio_project", "target": "cv_specialization" },
+    { "source": "portfolio_project", "target": "time_series_forecasting" },
+    { "source": "nlp_specialization", "target": "text_processing_embeddings" },
+    { "source": "text_processing_embeddings", "target": "transformers_llms" },
+    { "source": "cv_specialization", "target": "cnn_image_processing" },
+    { "source": "cnn_image_processing", "target": "object_detection_segmentation" },
+    { "source": "portfolio_project", "target": "mlops_basics" },
+    { "source": "portfolio_project", "target": "model_deployment_api" },
+    { "source": "model_deployment_api", "target": "cloud_ml_platforms" },
+    { "source": "nlp_specialization", "target": "capstone" },
+    { "source": "cv_specialization", "target": "capstone" },
+    { "source": "python_oop", "target": "capstone" },
+    { "source": "capstone", "target": "ml_engineer_target" },
+    { "source": "exploratory_data_analysis", "target": "data_scientist_target" },
+    { "source": "transformers_llms", "target": "nlp_engineer_target" },
+    { "source": "object_detection_segmentation", "target": "cv_engineer_target" }
+  ]
+}
