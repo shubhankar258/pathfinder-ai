@@ -34,6 +34,7 @@ yarn-debug.log*
 yarn-error.log*
 frontend/dist/
 frontend/node_modules/
+frontend/.vite/
 .npm
 
 # Agent Customizations & Skills
