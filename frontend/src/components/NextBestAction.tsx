@@ -15,9 +15,9 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
 }) => {
   if (!item) {
     return (
-      <div className="glass-panel" style={{ padding: '28px', textAlign: 'center' }}>
-        <CheckCircle size={36} color="#10b981" style={{ margin: '0 auto 10px' }} />
-        <h3 style={{ fontSize: '1.3rem' }}>All Curriculum Milestones Completed!</h3>
+      <div className="glass-panel" style={{ padding: '32px', textAlign: 'center' }}>
+        <CheckCircle size={40} color="#10b981" style={{ margin: '0 auto 12px' }} />
+        <h3 style={{ fontSize: '1.4rem' }}>All Curriculum Milestones Completed!</h3>
         <p style={{ color: 'var(--text-secondary)' }}>You have completed all prerequisite and target skills in your roadmap.</p>
       </div>
     );
@@ -30,44 +30,46 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
     <div
       className="glass-panel-elevated"
       style={{
-        padding: '28px 32px',
+        padding: '32px 36px',
         position: 'relative',
         overflow: 'hidden',
-        border: isWeak ? '1.5px solid rgba(239, 68, 68, 0.5)' : '1.5px solid rgba(249, 115, 22, 0.45)',
+        border: isWeak ? '1.5px solid rgba(239, 68, 68, 0.55)' : '1.5px solid rgba(249, 115, 22, 0.5)',
         background: isWeak
-          ? 'linear-gradient(135deg, rgba(42, 18, 22, 0.9) 0%, rgba(20, 24, 35, 0.88) 100%)'
-          : 'linear-gradient(135deg, rgba(38, 24, 16, 0.92) 0%, rgba(18, 22, 32, 0.88) 100%)',
+          ? 'linear-gradient(135deg, rgba(48, 18, 24, 0.72) 0%, rgba(24, 16, 26, 0.55) 100%)'
+          : 'linear-gradient(135deg, rgba(42, 22, 16, 0.75) 0%, rgba(18, 22, 34, 0.55) 100%)',
+        backdropFilter: 'blur(30px) saturate(200%)',
+        WebkitBackdropFilter: 'blur(30px) saturate(200%)',
         boxShadow: isWeak
-          ? '0 12px 36px rgba(239, 68, 68, 0.25)'
-          : '0 12px 36px rgba(249, 115, 22, 0.28)',
+          ? '0 20px 48px rgba(239, 68, 68, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3)'
+          : '0 20px 48px rgba(249, 115, 22, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3)',
       }}
     >
-      {/* Glow highlight */}
+      {/* Specular glow orb */}
       <div
         style={{
           position: 'absolute',
-          top: '-60px',
-          right: '-60px',
-          width: '220px',
-          height: '220px',
+          top: '-80px',
+          right: '-80px',
+          width: '260px',
+          height: '260px',
           borderRadius: '50%',
-          background: isWeak ? 'rgba(239, 68, 68, 0.22)' : 'rgba(249, 115, 22, 0.25)',
-          filter: 'blur(45px)',
+          background: isWeak ? 'rgba(239, 68, 68, 0.25)' : 'rgba(249, 115, 22, 0.25)',
+          filter: 'blur(55px)',
           pointerEvents: 'none',
         }}
       />
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px', marginBottom: '18px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px', marginBottom: '20px' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
             <span
               className="badge"
               style={{
-                background: isWeak ? 'var(--danger-bg)' : 'rgba(249, 115, 22, 0.18)',
+                background: isWeak ? 'var(--danger-bg)' : 'rgba(249, 115, 22, 0.22)',
                 color: isWeak ? '#fca5a5' : '#fed7aa',
                 border: isWeak ? '1px solid var(--danger-border)' : '1px solid var(--border-accent)',
-                padding: '5px 14px',
-                fontSize: '0.78rem',
+                padding: '6px 15px',
+                fontSize: '0.8rem',
               }}
             >
               {isWeak ? <AlertTriangle size={14} /> : <Zap size={14} />}
@@ -75,12 +77,12 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
             </span>
 
             <span className="badge badge-available">Phase {item.phase}</span>
-            <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: 'var(--text-secondary)' }}>
+            <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--text-secondary)' }}>
               Mode: {item.learning_mode}
             </span>
           </div>
 
-          <h2 style={{ fontSize: '1.95rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: '2.05rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
             {item.recommended_resource ? item.recommended_resource.title : item.skill_name}
           </h2>
         </div>
@@ -94,11 +96,11 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
               onClick={() => onTakeQuiz(item)}
               className="btn-secondary"
               style={{
-                borderColor: 'rgba(245, 158, 11, 0.5)',
-                background: 'rgba(245, 158, 11, 0.14)',
+                borderColor: 'rgba(245, 158, 11, 0.55)',
+                background: 'rgba(245, 158, 11, 0.18)',
                 color: '#fef08a',
-                padding: '11px 20px',
-                fontSize: '0.92rem',
+                padding: '12px 22px',
+                fontSize: '0.94rem',
               }}
             >
               <Award size={18} color="#f59e0b" /> Take Checkpoint Quiz
@@ -111,13 +113,13 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
             onClick={() => onStartLearning(item)}
             className="btn-primary"
             style={{
-              padding: '11px 26px',
+              padding: '12px 28px',
               background: isWeak
-                ? 'linear-gradient(135deg, #ef4444, #b91c1c)'
-                : 'linear-gradient(135deg, #f97316, #ea580c)',
+                ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95))'
+                : 'linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(234, 88, 12, 0.95))',
               boxShadow: isWeak
-                ? '0 4px 20px rgba(239, 68, 68, 0.4)'
-                : '0 4px 20px rgba(249, 115, 22, 0.45)',
+                ? '0 6px 24px rgba(239, 68, 68, 0.45)'
+                : '0 6px 24px rgba(249, 115, 22, 0.5)',
             }}
           >
             {item.state === 'COMPLETED' ? 'Mark In Progress' : isWeak ? 'Start Refresher' : 'Start Module'}{' '}
@@ -126,25 +128,30 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
         </div>
       </div>
 
-      {/* Explanation Quote Card */}
+      {/* Explanation Glass Quote Block */}
       <div
         style={{
-          background: 'rgba(9, 11, 16, 0.7)',
+          background: 'rgba(10, 14, 24, 0.65)',
+          backdropFilter: 'blur(16px)',
           borderRadius: 'var(--radius-md)',
-          padding: '14px 18px',
+          padding: '16px 20px',
           borderLeft: `4px solid ${isWeak ? '#ef4444' : 'var(--primary)'}`,
-          marginBottom: '18px',
-          fontSize: '0.96rem',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRight: '1px solid rgba(255, 255, 255, 0.05)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+          marginBottom: '20px',
+          fontSize: '0.98rem',
           color: '#e2e8f0',
-          lineHeight: 1.55,
+          lineHeight: 1.6,
+          boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
         }}
       >
-        <span style={{ color: isWeak ? '#fca5a5' : '#fdba74', fontWeight: 600 }}>Why right now: </span>
+        <span style={{ color: isWeak ? '#fca5a5' : '#fed7aa', fontWeight: 600 }}>Why right now: </span>
         {item.reasoning}
       </div>
 
       {/* Metadata Footprint */}
-      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Clock size={16} color="#f97316" />
           <span><strong>{item.estimated_hours} hours</strong> (Paced for 2-week milestone window)</span>

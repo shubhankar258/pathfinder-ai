@@ -24,46 +24,53 @@ export const RoadmapGraph: React.FC<RoadmapGraphProps> = ({
   const phases = Array.from(new Set(roadmap.map((item) => item.phase))).sort((a, b) => a - b);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
       {phases.map((phase) => {
         const phaseItems = roadmap.filter((item) => item.phase === phase);
         const phaseInfo = PHASE_TITLES[phase] || { title: `Phase ${phase}`, subtitle: 'Curriculum modules' };
         const phaseCompleted = phaseItems.filter((i) => i.state === 'COMPLETED').length;
 
         return (
-          <div key={phase} className="glass-panel" style={{ padding: '24px 28px' }}>
+          <div
+            key={phase}
+            className="glass-panel"
+            style={{
+              padding: '28px 32px',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+            }}
+          >
             {/* Phase Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '20px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '22px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '16px' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <span
                     style={{
-                      width: '10px',
-                      height: '10px',
+                      width: '12px',
+                      height: '12px',
                       borderRadius: '50%',
                       background: phaseCompleted === phaseItems.length ? '#10b981' : 'var(--primary)',
-                      boxShadow: `0 0 10px ${phaseCompleted === phaseItems.length ? 'rgba(16, 185, 129, 0.5)' : 'var(--primary-glow)'}`,
+                      boxShadow: `0 0 12px ${phaseCompleted === phaseItems.length ? 'rgba(16, 185, 129, 0.6)' : 'var(--primary-glow)'}`,
                     }}
                   />
-                  <h3 style={{ fontSize: '1.25rem', color: '#ffffff' }}>{phaseInfo.title}</h3>
+                  <h3 style={{ fontSize: '1.3rem', color: '#ffffff' }}>{phaseInfo.title}</h3>
                 </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '3px' }}>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginTop: '4px' }}>
                   {phaseInfo.subtitle}
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-secondary)' }}>
+                <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-secondary)' }}>
                   {phaseCompleted} / {phaseItems.length} completed
                 </span>
-                <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                   {phaseItems.reduce((acc, i) => acc + i.estimated_hours, 0)}h total
                 </span>
               </div>
             </div>
 
-            {/* Node Cards Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '16px' }}>
+            {/* Frosted Glass Node Cards Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '18px' }}>
               {phaseItems.map((item) => {
                 const isWeak = item.state === 'WEAK' || item.confidence_tier === 'WEAK';
                 const isCompleted = item.state === 'COMPLETED';
@@ -74,43 +81,34 @@ export const RoadmapGraph: React.FC<RoadmapGraphProps> = ({
                   <div
                     key={item.skill_id}
                     onClick={() => onSelectItem(item)}
+                    className="glass-card-interactive"
                     style={{
                       background: isWeak
-                        ? 'rgba(239, 68, 68, 0.08)'
+                        ? 'rgba(239, 68, 68, 0.12)'
                         : isCompleted
-                        ? 'rgba(16, 185, 129, 0.07)'
+                        ? 'rgba(16, 185, 129, 0.1)'
                         : isAvailable
-                        ? 'rgba(249, 115, 22, 0.08)'
-                        : 'var(--bg-surface-2)',
+                        ? 'rgba(249, 115, 22, 0.12)'
+                        : 'rgba(18, 24, 38, 0.55)',
                       border: `1.5px solid ${
                         isWeak
-                          ? 'rgba(239, 68, 68, 0.45)'
+                          ? 'rgba(239, 68, 68, 0.5)'
                           : isCompleted
-                          ? 'rgba(16, 185, 129, 0.4)'
+                          ? 'rgba(16, 185, 129, 0.45)'
                           : isAvailable
-                          ? 'rgba(249, 115, 22, 0.45)'
-                          : 'rgba(255, 255, 255, 0.06)'
+                          ? 'rgba(249, 115, 22, 0.5)'
+                          : 'rgba(255, 255, 255, 0.09)'
                       }`,
-                      borderRadius: 'var(--radius-md)',
-                      padding: '20px',
+                      padding: '22px',
                       cursor: 'pointer',
-                      position: 'relative',
-                      transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
                       opacity: isLocked ? 0.55 : 1,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-3px)';
-                      e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-                      if (isAvailable) e.currentTarget.style.borderColor = 'var(--primary)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      if (isAvailable) e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.45)';
+                      boxShadow: isAvailable
+                        ? '0 8px 24px rgba(249, 115, 22, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2)'
+                        : '0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.12)',
                     }}
                   >
                     {/* Top status bar */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                       <span className={`badge badge-${item.state.toLowerCase()}`}>
                         {isCompleted && <CheckCircle2 size={12} />}
                         {isLocked && <Lock size={12} />}
@@ -125,16 +123,16 @@ export const RoadmapGraph: React.FC<RoadmapGraphProps> = ({
                     </div>
 
                     {/* Skill / Resource Name */}
-                    <div style={{ fontWeight: 700, fontSize: '1.08rem', color: 'var(--text-primary)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
+                    <div style={{ fontWeight: 700, fontSize: '1.12rem', color: 'var(--text-primary)', marginBottom: '5px', letterSpacing: '-0.01em' }}>
                       {item.skill_name}
                     </div>
 
                     {item.recommended_resource && (
                       <div
                         style={{
-                          fontSize: '0.85rem',
+                          fontSize: '0.88rem',
                           color: '#fed7aa',
-                          marginBottom: '14px',
+                          marginBottom: '16px',
                           whiteSpace: 'nowrap',
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -145,7 +143,7 @@ export const RoadmapGraph: React.FC<RoadmapGraphProps> = ({
                     )}
 
                     {item.covered_by_resource_id && (
-                      <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '14px' }}>
+                      <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
                         Covered by earlier module
                       </div>
                     )}
@@ -156,13 +154,13 @@ export const RoadmapGraph: React.FC<RoadmapGraphProps> = ({
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        fontSize: '0.82rem',
+                        fontSize: '0.85rem',
                         color: 'var(--text-secondary)',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-                        paddingTop: '12px',
+                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                        paddingTop: '14px',
                       }}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <Clock size={14} color="#f97316" />
                         <span style={{ fontFamily: 'var(--font-mono)' }}>{item.estimated_hours}h</span>
                       </div>

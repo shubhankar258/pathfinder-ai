@@ -81,11 +81,13 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
         top: 0,
         right: 0,
         bottom: 0,
-        width: '450px',
+        width: '460px',
         maxWidth: '100vw',
-        background: 'var(--bg-surface-1)',
-        borderLeft: '1px solid var(--border-medium)',
-        boxShadow: 'var(--shadow-lg)',
+        background: 'linear-gradient(180deg, rgba(18, 23, 36, 0.88) 0%, rgba(10, 14, 22, 0.94) 100%)',
+        backdropFilter: 'blur(36px) saturate(200%)',
+        WebkitBackdropFilter: 'blur(36px) saturate(200%)',
+        borderLeft: '1px solid rgba(255, 255, 255, 0.16)',
+        boxShadow: '0 0 60px rgba(0, 0, 0, 0.8), inset 1px 0 2px rgba(255, 255, 255, 0.2)',
         zIndex: 900,
         display: 'flex',
         flexDirection: 'column',
@@ -94,40 +96,41 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
       {/* Drawer Header */}
       <div
         style={{
-          padding: '20px 24px',
-          borderBottom: '1px solid var(--border-subtle)',
+          padding: '22px 26px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'rgba(9, 11, 16, 0.92)',
+          background: 'rgba(255, 255, 255, 0.03)',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div
             style={{
-              padding: '8px',
+              padding: '9px',
               background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(245, 158, 11, 0.25))',
-              borderRadius: '10px',
-              border: '1px solid rgba(249, 115, 22, 0.35)',
+              borderRadius: '12px',
+              border: '1px solid rgba(249, 115, 22, 0.4)',
               color: '#f97316',
+              boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.2)',
             }}
           >
-            <Bot size={20} color="#fb923c" />
+            <Bot size={22} color="#fb923c" />
           </div>
           <div>
-            <h3 style={{ fontSize: '1.12rem', color: '#ffffff' }}>Pathfinder AI Assistant</h3>
+            <h3 style={{ fontSize: '1.15rem', color: '#ffffff' }}>Pathfinder AI Assistant</h3>
             <div style={{ fontSize: '0.75rem', color: '#34d399', fontFamily: 'var(--font-mono)' }}>
               ● Connected to NetworkX DAG state
             </div>
           </div>
         </div>
-        <button onClick={onClose} className="btn-secondary" style={{ padding: '6px' }}>
+        <button onClick={onClose} className="btn-secondary" style={{ padding: '7px' }}>
           <X size={18} />
         </button>
       </div>
 
       {/* Messages Feed */}
-      <div style={{ flex: 1, padding: '22px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ flex: 1, padding: '24px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '18px' }}>
         {messages.map((m) => (
           <div
             key={m.id}
@@ -142,28 +145,35 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
               <div
                 style={{
                   padding: '6px',
-                  background: 'rgba(249, 115, 22, 0.2)',
+                  background: 'rgba(249, 115, 22, 0.22)',
                   borderRadius: '50%',
-                  height: '32px',
-                  width: '32px',
+                  height: '34px',
+                  width: '34px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
+                  border: '1px solid rgba(249, 115, 22, 0.35)',
                 }}
               >
-                <Bot size={16} color="#f97316" />
+                <Bot size={17} color="#f97316" />
               </div>
             )}
             <div
               style={{
-                padding: '13px 18px',
+                padding: '14px 18px',
                 borderRadius: 'var(--radius-md)',
-                background: m.sender === 'user' ? 'linear-gradient(135deg, #f97316, #ea580c)' : 'rgba(17, 20, 30, 0.85)',
+                background: m.sender === 'user'
+                  ? 'linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(234, 88, 12, 0.95))'
+                  : 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(16px)',
                 color: '#ffffff',
-                fontSize: '0.92rem',
+                fontSize: '0.94rem',
                 lineHeight: 1.55,
-                border: m.sender === 'assistant' ? '1px solid rgba(255, 255, 255, 0.08)' : 'none',
+                border: m.sender === 'assistant' ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
+                boxShadow: m.sender === 'user'
+                  ? '0 4px 16px rgba(249, 115, 22, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.3)'
+                  : '0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
               }}
             >
               {m.text}
@@ -172,14 +182,15 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
               <div
                 style={{
                   padding: '6px',
-                  background: 'rgba(255, 255, 255, 0.12)',
+                  background: 'rgba(255, 255, 255, 0.14)',
                   borderRadius: '50%',
-                  height: '32px',
-                  width: '32px',
+                  height: '34px',
+                  width: '34px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
                 }}
               >
                 <User size={16} />
@@ -190,10 +201,10 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
 
         {isLoading && (
           <div style={{ display: 'flex', gap: '10px', alignSelf: 'flex-start' }}>
-            <div style={{ padding: '6px', background: 'rgba(249, 115, 22, 0.2)', borderRadius: '50%', height: '32px', width: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Bot size={16} color="#f97316" />
+            <div style={{ padding: '6px', background: 'rgba(249, 115, 22, 0.22)', borderRadius: '50%', height: '34px', width: '34px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Bot size={17} color="#f97316" />
             </div>
-            <div style={{ padding: '12px 18px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: 'var(--radius-md)', fontSize: '0.88rem', color: '#fed7aa', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ padding: '12px 18px', background: 'rgba(255, 255, 255, 0.05)', backdropFilter: 'blur(12px)', borderRadius: 'var(--radius-md)', fontSize: '0.88rem', color: '#fed7aa', fontFamily: 'var(--font-mono)' }}>
               Analyzing graph prerequisite context...
             </div>
           </div>
@@ -201,11 +212,11 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
       </div>
 
       {/* Suggested Quick Prompts */}
-      <div style={{ padding: '14px 20px', borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(9, 11, 16, 0.78)' }}>
-        <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-          <Sparkles size={13} color="#f97316" /> Suggested questions:
+      <div style={{ padding: '16px 22px', borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255, 255, 255, 0.02)' }}>
+        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Sparkles size={14} color="#f97316" /> Suggested questions:
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
           {SAMPLE_PROMPTS.map((p, idx) => (
             <button
               key={idx}
@@ -213,21 +224,22 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
               onClick={() => handleSend(p)}
               style={{
                 textAlign: 'left',
-                fontSize: '0.84rem',
-                padding: '7px 12px',
-                borderRadius: '6px',
-                background: 'rgba(255, 255, 255, 0.03)',
+                fontSize: '0.86rem',
+                padding: '8px 14px',
+                borderRadius: '8px',
+                background: 'rgba(255, 255, 255, 0.04)',
+                backdropFilter: 'blur(10px)',
                 color: '#fed7aa',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.07)',
                 transition: 'all 0.15s ease',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(249, 115, 22, 0.18)';
-                e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.4)';
+                e.currentTarget.style.background = 'rgba(249, 115, 22, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.45)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.07)';
               }}
             >
               {p}
@@ -243,11 +255,11 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
           handleSend(input);
         }}
         style={{
-          padding: '18px 20px',
-          borderTop: '1px solid var(--border-subtle)',
+          padding: '18px 22px',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
           display: 'flex',
           gap: '10px',
-          background: 'var(--bg-surface-1)',
+          background: 'rgba(10, 14, 22, 0.9)',
         }}
       >
         <input
@@ -257,22 +269,28 @@ export const AssistantDrawer: React.FC<AssistantDrawerProps> = ({
           placeholder="Ask why a skill is in your path..."
           style={{
             flex: 1,
-            padding: '11px 16px',
-            background: 'rgba(9, 11, 16, 0.8)',
-            border: '1px solid var(--border-subtle)',
+            padding: '12px 18px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
             borderRadius: 'var(--radius-md)',
             color: 'var(--text-primary)',
-            fontSize: '0.92rem',
+            fontSize: '0.94rem',
             outline: 'none',
           }}
-          onFocus={(e) => (e.target.style.borderColor = 'var(--primary)')}
-          onBlur={(e) => (e.target.style.borderColor = 'var(--border-subtle)')}
+          onFocus={(e) => {
+            e.target.style.borderColor = 'var(--primary)';
+            e.target.style.boxShadow = '0 0 16px rgba(249, 115, 22, 0.3)';
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+            e.target.style.boxShadow = 'none';
+          }}
         />
         <button
           type="submit"
           disabled={!input.trim() || isLoading}
           className="btn-primary"
-          style={{ padding: '11px 16px' }}
+          style={{ padding: '12px 18px' }}
         >
           <Send size={16} />
         </button>
