@@ -36,6 +36,10 @@ frontend/dist/
 frontend/node_modules/
 .npm
 
+# Agent Customizations & Skills
+.agent/
+.agents/
+
 # IDE / System
 .vscode/
 .idea/
