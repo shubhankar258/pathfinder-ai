@@ -247,45 +247,451 @@
       "description": "Target competency synthesis across image processing, CNN architectures, object detection, and edge deployment.",
       "domain": "Target Role",
       "phase_hint": 6
+    },
+    {
+      "id": "network_fundamentals",
+      "name": "Computer Networking & Protocols",
+      "description": "TCP/IP model, OSI layers, DNS, routing, subnetting, and Wireshark packet capture analysis.",
+      "domain": "Cybersecurity",
+      "phase_hint": 1
+    },
+    {
+      "id": "linux_administration",
+      "name": "Linux System Administration & Shell",
+      "description": "Linux filesystem, user permissions, process management, bash scripting, and CLI hardening.",
+      "domain": "Cybersecurity",
+      "phase_hint": 1
+    },
+    {
+      "id": "cryptography_basics",
+      "name": "Applied Cryptography & PKI",
+      "description": "Symmetric/asymmetric encryption, hashing algorithms, digital signatures, TLS/SSL, and certificates.",
+      "domain": "Cybersecurity",
+      "phase_hint": 2
+    },
+    {
+      "id": "web_security",
+      "name": "Web Application Security & OWASP Top 10",
+      "description": "SQL injection, XSS, CSRF, insecure direct object references, and security mitigation patterns.",
+      "domain": "Cybersecurity",
+      "phase_hint": 2
+    },
+    {
+      "id": "soc_siem_operations",
+      "name": "Security Operations & SIEM Analysis",
+      "description": "SOC workflows, log correlation, SIEM threat detection (Splunk/ELK), and incident triage.",
+      "domain": "Cybersecurity",
+      "phase_hint": 3
+    },
+    {
+      "id": "penetration_testing_basics",
+      "name": "Ethical Hacking & Vulnerability Assessment",
+      "description": "Port scanning with Nmap, vulnerability scanning, exploitation techniques, and Metasploit fundamentals.",
+      "domain": "Cybersecurity",
+      "phase_hint": 3
+    },
+    {
+      "id": "incident_response",
+      "name": "Incident Response & Digital Forensics",
+      "description": "Threat hunting, forensic memory/disk artifact analysis, malware triage, and remediation.",
+      "domain": "Cybersecurity",
+      "phase_hint": 4
+    },
+    {
+      "id": "cloud_security",
+      "name": "Cloud Security & Zero Trust Architecture",
+      "description": "Cloud IAM, security posture management (CSPM), zero trust principles, and container security.",
+      "domain": "Cybersecurity",
+      "phase_hint": 4
+    },
+    {
+      "id": "cybersecurity_capstone",
+      "name": "End-to-End Cybersecurity Defense Project",
+      "description": "Full red-team assessment, defensive blue-team hardening, and executive incident audit reporting.",
+      "domain": "Cybersecurity",
+      "phase_hint": 5
+    },
+    {
+      "id": "cybersecurity_engineer_target",
+      "name": "Cybersecurity Specialist Competency",
+      "description": "Synthesis across network defense, threat analysis, ethical hacking, and incident response.",
+      "domain": "Target Role",
+      "phase_hint": 5
+    },
+    {
+      "id": "html_css_modern",
+      "name": "Modern HTML5 & Responsive CSS",
+      "description": "Semantic markup, Flexbox, CSS Grid, responsive design, accessibility, and modern layouts.",
+      "domain": "Frontend",
+      "phase_hint": 1
+    },
+    {
+      "id": "javascript_typescript",
+      "name": "Modern JavaScript & TypeScript",
+      "description": "ES6+ syntax, asynchronous programming, DOM APIs, strict typing, and interface architecture.",
+      "domain": "Programming",
+      "phase_hint": 1
+    },
+    {
+      "id": "react_frontend",
+      "name": "React & Component Architecture",
+      "description": "State management, hooks, component lifecycle, virtual DOM, and client-side routing.",
+      "domain": "Frontend",
+      "phase_hint": 2
+    },
+    {
+      "id": "backend_apis_node_python",
+      "name": "RESTful API & Microservice Development",
+      "description": "API architecture with Node.js/FastAPI, request routing, middleware, and validation.",
+      "domain": "Backend",
+      "phase_hint": 2
+    },
+    {
+      "id": "nosql_databases",
+      "name": "NoSQL & Document Databases",
+      "description": "MongoDB, Redis caching, indexing, data modeling, and distributed query performance.",
+      "domain": "Data Engineering",
+      "phase_hint": 3
+    },
+    {
+      "id": "auth_security_system_design",
+      "name": "Authentication, Security & System Design",
+      "description": "JWT authentication, OAuth2, session security, rate limiting, and scalable backend design.",
+      "domain": "Software Engineering",
+      "phase_hint": 3
+    },
+    {
+      "id": "fullstack_capstone",
+      "name": "Full-Stack Production Application",
+      "description": "Complete full-stack application with authenticated API, database, dynamic UI, and automated CI/CD.",
+      "domain": "Engineering",
+      "phase_hint": 4
+    },
+    {
+      "id": "fullstack_engineer_target",
+      "name": "Full-Stack Developer Competency",
+      "description": "Synthesis across modern frontend, resilient APIs, databases, authentication, and system design.",
+      "domain": "Target Role",
+      "phase_hint": 4
+    },
+    {
+      "id": "docker_containers",
+      "name": "Docker Containerization",
+      "description": "Container fundamentals, Dockerfile best practices, multi-stage builds, volumes, and Compose.",
+      "domain": "DevOps",
+      "phase_hint": 2
+    },
+    {
+      "id": "kubernetes_orchestration",
+      "name": "Kubernetes Cluster Orchestration",
+      "description": "Pods, Deployments, Services, Ingress controllers, Helm charts, and cluster management.",
+      "domain": "DevOps",
+      "phase_hint": 3
+    },
+    {
+      "id": "cicd_automation",
+      "name": "CI/CD Pipelines & Automation",
+      "description": "Automated testing, build pipelines, GitHub Actions, artifact registries, and continuous deployment.",
+      "domain": "DevOps",
+      "phase_hint": 3
+    },
+    {
+      "id": "iac_terraform",
+      "name": "Infrastructure as Code (Terraform)",
+      "description": "Declarative infrastructure, Terraform state management, reusable modules, and cloud provisioning.",
+      "domain": "DevOps",
+      "phase_hint": 4
+    },
+    {
+      "id": "cloud_infra_aws_gcp",
+      "name": "Cloud Architecture (AWS / GCP)",
+      "description": "VPC networking, compute instances, load balancing, serverless functions, and cloud monitoring.",
+      "domain": "DevOps",
+      "phase_hint": 4
+    },
+    {
+      "id": "devops_capstone",
+      "name": "End-to-End GitOps Cloud Platform",
+      "description": "Automated GitOps deployment to Kubernetes with Terraform provisioning and Prometheus monitoring.",
+      "domain": "DevOps",
+      "phase_hint": 5
+    },
+    {
+      "id": "devops_engineer_target",
+      "name": "Cloud & DevOps Engineer Competency",
+      "description": "Synthesis across Linux, containers, Kubernetes, CI/CD pipelines, and cloud infrastructure.",
+      "domain": "Target Role",
+      "phase_hint": 5
     }
   ],
   "links": [
-    { "source": "python_basics", "target": "python_oop" },
-    { "source": "python_basics", "target": "numpy_pandas" },
-    { "source": "python_basics", "target": "sql_relational_databases" },
-    { "source": "python_basics", "target": "git_version_control" },
-    { "source": "python_basics", "target": "data_structures_algorithms" },
-    { "source": "numpy_pandas", "target": "exploratory_data_analysis" },
-    { "source": "numpy_pandas", "target": "statistics_probability" },
-    { "source": "linear_algebra", "target": "deep_learning_basics" },
-    { "source": "calculus_optimization", "target": "deep_learning_basics" },
-    { "source": "statistics_probability", "target": "ml_fundamentals" },
-    { "source": "statistics_probability", "target": "exploratory_data_analysis" },
-    { "source": "ml_fundamentals", "target": "supervised_learning" },
-    { "source": "ml_fundamentals", "target": "unsupervised_learning" },
-    { "source": "ml_fundamentals", "target": "model_evaluation" },
-    { "source": "ml_fundamentals", "target": "feature_engineering" },
-    { "source": "ml_fundamentals", "target": "regularization" },
-    { "source": "supervised_learning", "target": "ensemble_methods" },
-    { "source": "model_evaluation", "target": "portfolio_project" },
-    { "source": "ml_fundamentals", "target": "deep_learning_basics" },
-    { "source": "deep_learning_basics", "target": "neural_networks" },
-    { "source": "portfolio_project", "target": "nlp_specialization" },
-    { "source": "portfolio_project", "target": "cv_specialization" },
-    { "source": "portfolio_project", "target": "time_series_forecasting" },
-    { "source": "nlp_specialization", "target": "text_processing_embeddings" },
-    { "source": "text_processing_embeddings", "target": "transformers_llms" },
-    { "source": "cv_specialization", "target": "cnn_image_processing" },
-    { "source": "cnn_image_processing", "target": "object_detection_segmentation" },
-    { "source": "portfolio_project", "target": "mlops_basics" },
-    { "source": "portfolio_project", "target": "model_deployment_api" },
-    { "source": "model_deployment_api", "target": "cloud_ml_platforms" },
-    { "source": "nlp_specialization", "target": "capstone" },
-    { "source": "cv_specialization", "target": "capstone" },
-    { "source": "python_oop", "target": "capstone" },
-    { "source": "capstone", "target": "ml_engineer_target" },
-    { "source": "exploratory_data_analysis", "target": "data_scientist_target" },
-    { "source": "transformers_llms", "target": "nlp_engineer_target" },
-    { "source": "object_detection_segmentation", "target": "cv_engineer_target" }
+    {
+      "source": "python_basics",
+      "target": "python_oop"
+    },
+    {
+      "source": "python_basics",
+      "target": "numpy_pandas"
+    },
+    {
+      "source": "python_basics",
+      "target": "sql_relational_databases"
+    },
+    {
+      "source": "python_basics",
+      "target": "git_version_control"
+    },
+    {
+      "source": "python_basics",
+      "target": "data_structures_algorithms"
+    },
+    {
+      "source": "numpy_pandas",
+      "target": "exploratory_data_analysis"
+    },
+    {
+      "source": "numpy_pandas",
+      "target": "statistics_probability"
+    },
+    {
+      "source": "linear_algebra",
+      "target": "deep_learning_basics"
+    },
+    {
+      "source": "calculus_optimization",
+      "target": "deep_learning_basics"
+    },
+    {
+      "source": "statistics_probability",
+      "target": "ml_fundamentals"
+    },
+    {
+      "source": "statistics_probability",
+      "target": "exploratory_data_analysis"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "supervised_learning"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "unsupervised_learning"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "model_evaluation"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "feature_engineering"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "regularization"
+    },
+    {
+      "source": "supervised_learning",
+      "target": "ensemble_methods"
+    },
+    {
+      "source": "model_evaluation",
+      "target": "portfolio_project"
+    },
+    {
+      "source": "ml_fundamentals",
+      "target": "deep_learning_basics"
+    },
+    {
+      "source": "deep_learning_basics",
+      "target": "neural_networks"
+    },
+    {
+      "source": "portfolio_project",
+      "target": "nlp_specialization"
+    },
+    {
+      "source": "portfolio_project",
+      "target": "cv_specialization"
+    },
+    {
+      "source": "portfolio_project",
+      "target": "time_series_forecasting"
+    },
+    {
+      "source": "nlp_specialization",
+      "target": "text_processing_embeddings"
+    },
+    {
+      "source": "text_processing_embeddings",
+      "target": "transformers_llms"
+    },
+    {
+      "source": "cv_specialization",
+      "target": "cnn_image_processing"
+    },
+    {
+      "source": "cnn_image_processing",
+      "target": "object_detection_segmentation"
+    },
+    {
+      "source": "portfolio_project",
+      "target": "mlops_basics"
+    },
+    {
+      "source": "portfolio_project",
+      "target": "model_deployment_api"
+    },
+    {
+      "source": "model_deployment_api",
+      "target": "cloud_ml_platforms"
+    },
+    {
+      "source": "nlp_specialization",
+      "target": "capstone"
+    },
+    {
+      "source": "cv_specialization",
+      "target": "capstone"
+    },
+    {
+      "source": "python_oop",
+      "target": "capstone"
+    },
+    {
+      "source": "capstone",
+      "target": "ml_engineer_target"
+    },
+    {
+      "source": "exploratory_data_analysis",
+      "target": "data_scientist_target"
+    },
+    {
+      "source": "transformers_llms",
+      "target": "nlp_engineer_target"
+    },
+    {
+      "source": "object_detection_segmentation",
+      "target": "cv_engineer_target"
+    },
+    {
+      "source": "network_fundamentals",
+      "target": "cryptography_basics"
+    },
+    {
+      "source": "network_fundamentals",
+      "target": "web_security"
+    },
+    {
+      "source": "linux_administration",
+      "target": "web_security"
+    },
+    {
+      "source": "linux_administration",
+      "target": "soc_siem_operations"
+    },
+    {
+      "source": "cryptography_basics",
+      "target": "cloud_security"
+    },
+    {
+      "source": "web_security",
+      "target": "penetration_testing_basics"
+    },
+    {
+      "source": "soc_siem_operations",
+      "target": "incident_response"
+    },
+    {
+      "source": "penetration_testing_basics",
+      "target": "cybersecurity_capstone"
+    },
+    {
+      "source": "incident_response",
+      "target": "cybersecurity_capstone"
+    },
+    {
+      "source": "cloud_security",
+      "target": "cybersecurity_capstone"
+    },
+    {
+      "source": "cybersecurity_capstone",
+      "target": "cybersecurity_engineer_target"
+    },
+    {
+      "source": "html_css_modern",
+      "target": "react_frontend"
+    },
+    {
+      "source": "javascript_typescript",
+      "target": "react_frontend"
+    },
+    {
+      "source": "javascript_typescript",
+      "target": "backend_apis_node_python"
+    },
+    {
+      "source": "git_version_control",
+      "target": "fullstack_capstone"
+    },
+    {
+      "source": "backend_apis_node_python",
+      "target": "nosql_databases"
+    },
+    {
+      "source": "sql_relational_databases",
+      "target": "auth_security_system_design"
+    },
+    {
+      "source": "nosql_databases",
+      "target": "auth_security_system_design"
+    },
+    {
+      "source": "react_frontend",
+      "target": "fullstack_capstone"
+    },
+    {
+      "source": "auth_security_system_design",
+      "target": "fullstack_capstone"
+    },
+    {
+      "source": "fullstack_capstone",
+      "target": "fullstack_engineer_target"
+    },
+    {
+      "source": "linux_administration",
+      "target": "docker_containers"
+    },
+    {
+      "source": "git_version_control",
+      "target": "cicd_automation"
+    },
+    {
+      "source": "docker_containers",
+      "target": "kubernetes_orchestration"
+    },
+    {
+      "source": "docker_containers",
+      "target": "cicd_automation"
+    },
+    {
+      "source": "kubernetes_orchestration",
+      "target": "iac_terraform"
+    },
+    {
+      "source": "iac_terraform",
+      "target": "cloud_infra_aws_gcp"
+    },
+    {
+      "source": "cicd_automation",
+      "target": "devops_capstone"
+    },
+    {
+      "source": "cloud_infra_aws_gcp",
+      "target": "devops_capstone"
+    },
+    {
+      "source": "devops_capstone",
+      "target": "devops_engineer_target"
+    }
   ]
 }

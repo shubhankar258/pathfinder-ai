@@ -36,16 +36,24 @@ def parse_goal_nlp(goal_raw: str) -> Dict[str, Any]:
     """
     Structured NLU goal parser (Section 11).
     Extracts structured fields and identifies missing fields for profile cards.
+    Supports Machine Learning, Cybersecurity, Full-Stack Development, Cloud & DevOps, and Data Science.
     """
     text = goal_raw.strip()
     text_lower = text.lower()
 
-    # 1. Target Role
+    # 1. Target Role & Target Skill Resolution
     target_role = None
     target_skill = "ml_engineer_target"
-    if "machine learning engineer" in text_lower or "ml engineer" in text_lower:
-        target_role = "Machine Learning Engineer"
-        target_skill = "ml_engineer_target"
+
+    if any(k in text_lower for k in ["cybersecurity", "security", "ethical hack", "penetration test", "infosec", "soc analyst", "cyber defense"]):
+        target_role = "Cybersecurity Specialist"
+        target_skill = "cybersecurity_engineer_target"
+    elif any(k in text_lower for k in ["full stack", "fullstack", "web dev", "web develop", "frontend", "backend", "software engineer", "react"]):
+        target_role = "Full-Stack Developer"
+        target_skill = "fullstack_engineer_target"
+    elif any(k in text_lower for k in ["devops", "cloud engineer", "cloud computing", "kubernetes", "docker", "sre", "platform engineer"]):
+        target_role = "Cloud & DevOps Engineer"
+        target_skill = "devops_engineer_target"
     elif "data scientist" in text_lower or "data science" in text_lower:
         target_role = "Data Scientist"
         target_skill = "data_scientist_target"
@@ -55,8 +63,12 @@ def parse_goal_nlp(goal_raw: str) -> Dict[str, Any]:
     elif "computer vision engineer" in text_lower or "cv engineer" in text_lower:
         target_role = "Computer Vision Engineer"
         target_skill = "cv_engineer_target"
+    elif "machine learning" in text_lower or "ml engineer" in text_lower or "ai engineer" in text_lower:
+        target_role = "Machine Learning Engineer"
+        target_skill = "ml_engineer_target"
     else:
         target_role = "Machine Learning Engineer"
+        target_skill = "ml_engineer_target"
 
     # 2. Timeline weeks
     timeline_weeks = 24  # default 6 months
@@ -64,14 +76,21 @@ def parse_goal_nlp(goal_raw: str) -> Dict[str, Any]:
         timeline_weeks = 24
     elif "3 months" in text_lower or "three months" in text_lower:
         timeline_weeks = 12
-    elif "1 year" in text_lower or "one year" in text_lower or "12 months" in text_lower:
+    elif "1 year" in text_lower or "one year" in text_lower or "12 months" in text_lower or "twelve months" in text_lower:
         timeline_weeks = 52
+    elif "9 months" in text_lower or "nine months" in text_lower:
+        timeline_weeks = 36
     else:
-        match = re.search(r"(\d+)\s*(month|week)", text_lower)
+        match = re.search(r"(\d+)\s*(month|week|year)", text_lower)
         if match:
             num = int(match.group(1))
             unit = match.group(2)
-            timeline_weeks = num * 4 if "month" in unit else num
+            if "year" in unit:
+                timeline_weeks = num * 52
+            elif "month" in unit:
+                timeline_weeks = num * 4
+            else:
+                timeline_weeks = num
 
     # 3. Known skills and confidence
     skill_confidence: Dict[str, ConfidenceTier] = {}
@@ -83,6 +102,15 @@ def parse_goal_nlp(goal_raw: str) -> Dict[str, Any]:
     elif "intermediate python" in text_lower or "good python" in text_lower:
         skill_confidence["python_basics"] = ConfidenceTier.DEVELOPING
         experience_level = "Intermediate Python"
+    elif "know networking" in text_lower or "basic networking" in text_lower:
+        skill_confidence["network_fundamentals"] = ConfidenceTier.FAMILIAR
+        experience_level = "Basic Networking"
+    elif "know linux" in text_lower or "basic linux" in text_lower:
+        skill_confidence["linux_administration"] = ConfidenceTier.FAMILIAR
+        experience_level = "Basic Linux"
+    elif "know javascript" in text_lower or "basic javascript" in text_lower or "know js" in text_lower:
+        skill_confidence["javascript_typescript"] = ConfidenceTier.FAMILIAR
+        experience_level = "Basic JavaScript"
     elif "no python" in text_lower or "never coded" in text_lower or "beginner" in text_lower:
         experience_level = "Beginner"
 
@@ -107,6 +135,16 @@ def parse_goal_nlp(goal_raw: str) -> Dict[str, Any]:
         interest_domain = "NLP"
     elif "computer vision" in text_lower or "vision" in text_lower or "cv" in text_lower:
         interest_domain = "Computer Vision"
+    elif "ethical hack" in text_lower or "penetration test" in text_lower or "red team" in text_lower:
+        interest_domain = "Ethical Hacking & Pen Testing"
+    elif "soc" in text_lower or "siem" in text_lower or "blue team" in text_lower:
+        interest_domain = "SOC & Threat Analysis"
+    elif "frontend" in text_lower or "ui" in text_lower:
+        interest_domain = "Frontend & UI/UX"
+    elif "backend" in text_lower or "api" in text_lower:
+        interest_domain = "Backend & Microservices"
+    elif "kubernetes" in text_lower or "k8s" in text_lower:
+        interest_domain = "Kubernetes & Platform Eng"
 
     # Identify missing fields that must be presented as cards
     missing_fields = []
@@ -147,6 +185,22 @@ def generate_assistant_explanation(
     target_role = profile.get("target_role", "Machine Learning Engineer")
     interest = profile.get("interest_domain", "NLP")
 
+    # Cybersecurity Grounded Reasoning
+    if ("network" in q or "networking" in q) and ("why" in q or "before" in q):
+        return (
+            f"Computer Networking & Protocols is positioned before Penetration Testing and Web Security "
+            f"because security practitioners must understand the TCP/IP stack, packet headers, routing, and DNS "
+            f"to accurately diagnose vulnerabilities, analyze Wireshark captures, and craft defensive firewall rules."
+        )
+
+    if ("linux" in q) and ("why" in q or "before" in q):
+        return (
+            f"Linux System Administration is foundational for both Cybersecurity and Cloud/DevOps because "
+            f"enterprise production servers, SIEM collectors, Docker daemons, and security appliances run on Linux. "
+            f"Mastering CLI permissions and bash scripting is essential for incident response and container orchestration."
+        )
+
+    # Machine Learning Grounded Reasoning
     if "why" in q and ("statistics" in q or "prob" in q):
         return (
             f"Statistics & Probability is positioned before Machine Learning Fundamentals "
@@ -154,7 +208,7 @@ def generate_assistant_explanation(
             f"Bayes' theorem, and statistical inference to understand loss optimization and model evaluation."
         )
 
-    if "skip" in q and "python oop" in q:
+    if "skip" in q and ("python oop" in q or "oop" in q):
         return (
             f"Python OOP is an essential architectural building block for creating modular machine learning pipelines "
             f"and production-grade capstone services for a {target_role}. If you already have strong OOP experience, "
@@ -177,7 +231,7 @@ def generate_assistant_explanation(
     if "nlp" in q or "computer vision" in q or "specialization" in q:
         return (
             f"Your roadmap includes a dedicated specialization phase for {interest}, "
-            f"which builds directly upon your completed ML fundamentals and portfolio project."
+            f"which builds directly upon your completed fundamentals and applied portfolio project."
         )
 
     # General contextual response

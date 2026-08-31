@@ -26,19 +26,191 @@
           "CLT applies only to discrete distributions like Poisson and Binomial."
         ],
         "correct_index": 1,
-        "explanation": "The CLT guarantees that for sufficiently large sample sizes, sample means are approximately normally distributed with standard error σ/√n."
+        "explanation": "The CLT guarantees that for sufficiently large sample sizes, sample means are approximately normally distributed with standard error \u00cf\u0192/\u00e2\u02c6\u0161n."
       },
       {
         "id": "q3",
-        "question": "In hypothesis testing, what is a Type I error (α) and how does it relate to p-values?",
+        "question": "In hypothesis testing, what is a Type I error (\u00ce\u00b1) and how does it relate to p-values?",
         "options": [
           "Failing to reject a false null hypothesis; occurs when p-value > 0.05.",
-          "Rejecting a true null hypothesis (false positive); we reject the null when the p-value is less than the significance level α.",
+          "Rejecting a true null hypothesis (false positive); we reject the null when the p-value is less than the significance level \u00ce\u00b1.",
           "Incorrectly calculating the standard error of the estimate.",
           "The probability of correctly accepting an alternative hypothesis (statistical power)."
         ],
         "correct_index": 1,
-        "explanation": "A Type I error is rejecting the null hypothesis when it is actually true (false positive rate α)."
+        "explanation": "A Type I error is rejecting the null hypothesis when it is actually true (false positive rate \u00ce\u00b1)."
+      }
+    ]
+  },
+  "network_fundamentals": {
+    "skill_id": "network_fundamentals",
+    "skill_name": "Computer Networking & Protocols",
+    "passing_score": 0.5,
+    "questions": [
+      {
+        "id": "net_q1",
+        "question": "Which layer of the OSI model is responsible for end-to-end reliability, segmentation, and flow control (e.g. TCP)?",
+        "options": [
+          "Network Layer (Layer 3)",
+          "Transport Layer (Layer 4)",
+          "Data Link Layer (Layer 2)",
+          "Session Layer (Layer 5)"
+        ],
+        "correct_index": 1,
+        "explanation": "The Transport layer (Layer 4) manages end-to-end communication, connection establishment (TCP 3-way handshake), and flow control."
+      },
+      {
+        "id": "net_q2",
+        "question": "In an IPv4 network, what is the usable host capacity of a /24 subnet (CIDR notation)?",
+        "options": [
+          "256 usable hosts",
+          "254 usable hosts (excluding network and broadcast addresses)",
+          "128 usable hosts",
+          "512 usable hosts"
+        ],
+        "correct_index": 1,
+        "explanation": "A /24 subnet has 2^(32-24) = 256 total IP addresses, minus the network address (.0) and broadcast address (.255), leaving 254 usable host addresses."
+      },
+      {
+        "id": "net_q3",
+        "question": "What is the purpose of the Address Resolution Protocol (ARP)?",
+        "options": [
+          "Translates domain names into IP addresses",
+          "Maps an IP address (Network layer) to a MAC address (Data Link layer) on a local subnet",
+          "Encrypts traffic between client and server via TLS",
+          "Automatically assigns dynamic IP addresses to client devices"
+        ],
+        "correct_index": 1,
+        "explanation": "ARP maps an IPv4 address to its physical MAC hardware address for local frame delivery on an Ethernet network."
+      }
+    ]
+  },
+  "web_security": {
+    "skill_id": "web_security",
+    "skill_name": "Web Application Security & OWASP Top 10",
+    "passing_score": 0.5,
+    "questions": [
+      {
+        "id": "web_q1",
+        "question": "What is the most effective primary defense against SQL Injection vulnerabilities in backend database queries?",
+        "options": [
+          "Blacklisting dangerous characters like quotes and semicolons",
+          "Using parameterized queries (Prepared Statements) or ORM abstraction",
+          "Encoding URL parameters with base64",
+          "Enabling HTTPS encryption on the web server"
+        ],
+        "correct_index": 1,
+        "explanation": "Parameterized queries separate SQL code from user-supplied data at the database parser level, making SQL injection impossible."
+      },
+      {
+        "id": "web_q2",
+        "question": "Which HTTP header provides mitigation against Cross-Site Scripting (XSS) by restricting the sources of executable scripts?",
+        "options": [
+          "Access-Control-Allow-Origin",
+          "Content-Security-Policy (CSP)",
+          "Strict-Transport-Security (HSTS)",
+          "X-Frame-Options"
+        ],
+        "correct_index": 1,
+        "explanation": "Content-Security-Policy (CSP) allows server operators to restrict which domain origins are allowed to execute scripts, styles, and fetch requests."
+      },
+      {
+        "id": "web_q3",
+        "question": "What security mechanism protects against Cross-Site Request Forgery (CSRF)?",
+        "options": [
+          "Anti-CSRF synchronizer tokens and SameSite cookie attributes",
+          "Hashing passwords with bcrypt",
+          "Setting the HTTP Authorization header to Basic Auth",
+          "Disabling browser caching with Cache-Control: no-store"
+        ],
+        "correct_index": 0,
+        "explanation": "Cryptographic CSRF tokens and SameSite=Strict/Lax cookie attributes ensure that state-changing requests originate from authentic user sessions."
+      }
+    ]
+  },
+  "javascript_typescript": {
+    "skill_id": "javascript_typescript",
+    "skill_name": "Modern JavaScript & TypeScript",
+    "passing_score": 0.5,
+    "questions": [
+      {
+        "id": "js_q1",
+        "question": "What is the difference between JavaScript Promise.all() and Promise.allSettled()?",
+        "options": [
+          "Promise.all() rejects immediately if any promise fails; Promise.allSettled() waits for all promises to resolve or reject.",
+          "Promise.all() runs sequentially while Promise.allSettled() runs concurrently.",
+          "Promise.allSettled() only works in Node.js environments.",
+          "There is no functional difference between the two."
+        ],
+        "correct_index": 0,
+        "explanation": "Promise.all short-circuits on the first rejection, whereas Promise.allSettled waits for all inputs to complete and returns status objects."
+      },
+      {
+        "id": "js_q2",
+        "question": "In TypeScript, what is the key difference between an interface and a type alias?",
+        "options": [
+          "Interfaces support declaration merging (open for extension); type aliases can represent unions, primitives, and mapped types.",
+          "Interfaces are transpiled into JavaScript runtime objects; type aliases are deleted.",
+          "Type aliases cannot be implemented by classes.",
+          "Interfaces cannot extend other interfaces."
+        ],
+        "correct_index": 0,
+        "explanation": "Interfaces can be augmented via declaration merging, whereas type aliases are aliases for any type composition including union and intersection types."
+      },
+      {
+        "id": "js_q3",
+        "question": "How does JavaScript event loop prioritize Microtasks (e.g. Promise.then, queueMicrotask) relative to Macrotasks (e.g. setTimeout, setInterval)?",
+        "options": [
+          "Macrotasks always execute before any microtasks in the queue.",
+          "The entire microtask queue is processed to completion immediately after each task and before rendering/next macrotask.",
+          "Microtasks and macrotasks alternate execution in a round-robin schedule.",
+          "Microtasks run on a separate background thread in the browser."
+        ],
+        "correct_index": 1,
+        "explanation": "The JavaScript engine drains the microtask queue completely before moving to the next macrotask or browser paint cycle."
+      }
+    ]
+  },
+  "docker_containers": {
+    "skill_id": "docker_containers",
+    "skill_name": "Docker Containerization",
+    "passing_score": 0.5,
+    "questions": [
+      {
+        "id": "dock_q1",
+        "question": "What is the primary benefit of multi-stage Docker builds?",
+        "options": [
+          "Runs multiple containers inside a single pod.",
+          "Separates build tools and dependencies from the final lean runtime image, minimizing image size and attack surface.",
+          "Automatically pushes images to Docker Hub.",
+          "Enables multi-threading for Python interpreters."
+        ],
+        "correct_index": 1,
+        "explanation": "Multi-stage builds compile artifacts in a heavy build stage and copy only binary/runtime artifacts to the minimal final stage."
+      },
+      {
+        "id": "dock_q2",
+        "question": "What is the difference between Docker CMD and ENTRYPOINT instructions in a Dockerfile?",
+        "options": [
+          "ENTRYPOINT defines the default executable; CMD provides default arguments that can be easily overridden at runtime via docker run.",
+          "CMD is executed at build time; ENTRYPOINT is executed at container start.",
+          "ENTRYPOINT is deprecated in Docker 20+ in favor of RUN.",
+          "There is no difference between CMD and ENTRYPOINT."
+        ],
+        "correct_index": 0,
+        "explanation": "ENTRYPOINT specifies the immutable command to invoke, while CMD supplies default parameters that can be overridden by arguments passed to docker run."
+      },
+      {
+        "id": "dock_q3",
+        "question": "Which Linux kernel features provide process isolation and resource limitation for Docker containers?",
+        "options": [
+          "Namespaces (for process/network/mount isolation) and cgroups (for CPU/memory resource limits)",
+          "Hypervisors and virtual memory swapping",
+          "SELinux exclusively without kernel virtualization",
+          "Systemd user units and cron triggers"
+        ],
+        "correct_index": 0,
+        "explanation": "Containers are isolated via Linux Namespaces (PID, NET, MNT, IPC, UTS) and resource-constrained via Control Groups (cgroups)."
       }
     ]
   }
