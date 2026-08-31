@@ -15,6 +15,26 @@ export interface ParseGoalResult {
   missing_fields: string[];
 }
 
+async function handleResponse<T>(res: Response, defaultAction: string): Promise<T> {
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const data = await res.json();
+      detail = data?.detail ? (typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail)) : '';
+    } catch {
+      try {
+        const text = await res.text();
+        if (text && !text.includes('<!DOCTYPE') && !text.includes('<html')) {
+          detail = text.slice(0, 100);
+        }
+      } catch {}
+    }
+    const msg = detail ? `${defaultAction}: ${detail}` : `${defaultAction} (HTTP ${res.status} ${res.statusText || 'Error'})`;
+    throw new Error(msg);
+  }
+  return res.json();
+}
+
 export const api = {
   async parseGoal(goal_raw: string): Promise<ParseGoalResult> {
     const res = await fetch(`${API_BASE}/onboard/parse`, {
@@ -22,10 +42,7 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ goal_raw }),
     });
-    if (!res.ok) {
-      throw new Error(`Failed to parse goal: ${res.statusText}`);
-    }
-    return res.json();
+    return handleResponse<ParseGoalResult>(res, 'Failed to parse goal');
   },
 
   async generateRoadmap(profile: LearnerProfile): Promise<RoadmapResponse> {
@@ -34,10 +51,7 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ profile }),
     });
-    if (!res.ok) {
-      throw new Error(`Failed to generate roadmap: ${res.statusText}`);
-    }
-    return res.json();
+    return handleResponse<RoadmapResponse>(res, 'Failed to generate roadmap');
   },
 
   async adaptRoadmap(
@@ -54,26 +68,17 @@ export const api = {
         profile,
       }),
     });
-    if (!res.ok) {
-      throw new Error(`Failed to adapt roadmap: ${res.statusText}`);
-    }
-    return res.json();
+    return handleResponse<AdaptationResponse>(res, 'Failed to adapt roadmap');
   },
 
   async getQuiz(skill_id: string): Promise<QuizData> {
     const res = await fetch(`${API_BASE}/quiz/${skill_id}`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch quiz for ${skill_id}: ${res.statusText}`);
-    }
-    return res.json();
+    return handleResponse<QuizData>(res, `Failed to fetch quiz for ${skill_id}`);
   },
 
   async getDAG(): Promise<DAGData> {
     const res = await fetch(`${API_BASE}/dag`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch DAG: ${res.statusText}`);
-    }
-    return res.json();
+    return handleResponse<DAGData>(res, 'Failed to fetch DAG');
   },
 
   async askAssistant(
@@ -90,10 +95,7 @@ export const api = {
         profile,
       }),
     });
-    if (!res.ok) {
-      throw new Error(`Failed to ask assistant: ${res.statusText}`);
-    }
-    const data = await res.json();
+    const data = await handleResponse<{ answer: string }>(res, 'Failed to ask assistant');
     return data.answer;
   },
 };
