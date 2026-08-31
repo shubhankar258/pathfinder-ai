@@ -6,11 +6,11 @@ interface GenerationViewProps {
 }
 
 const PIPELINE_STEPS = [
-  { id: 1, text: 'Parsing Goal NLU & Extracting Domain Objectives', duration: 400 },
-  { id: 2, text: 'Traversing NetworkX DAG & Prerequisite Ancestors', duration: 500 },
-  { id: 3, text: 'Resolving Tiered Confidence State Machine', duration: 450 },
-  { id: 4, text: 'Executing 5-Factor Scoring & 2-Week Milestone TimeFit', duration: 500 },
-  { id: 5, text: 'Assembling Deduplicated Path & Next Best Action', duration: 400 },
+  { id: 1, text: 'Parsing Goal NLU & Extracting Domain Objectives', duration: 350 },
+  { id: 2, text: 'Traversing NetworkX DAG & Prerequisite Ancestors', duration: 400 },
+  { id: 3, text: 'Resolving Tiered Confidence State Machine', duration: 350 },
+  { id: 4, text: 'Executing 5-Factor Scoring & 2-Week Milestone TimeFit', duration: 400 },
+  { id: 5, text: 'Assembling Deduplicated Path & Next Best Action', duration: 350 },
 ];
 
 export const GenerationView: React.FC<GenerationViewProps> = ({ onComplete }) => {
@@ -24,7 +24,7 @@ export const GenerationView: React.FC<GenerationViewProps> = ({ onComplete }) =>
       if (stepIdx > PIPELINE_STEPS.length) {
         timer = setTimeout(() => {
           onComplete();
-        }, 500);
+        }, 400);
         return;
       }
 
@@ -45,59 +45,59 @@ export const GenerationView: React.FC<GenerationViewProps> = ({ onComplete }) =>
   const progressPercent = Math.min(100, Math.round((completedSteps.length / PIPELINE_STEPS.length) * 100));
 
   return (
-    <div style={{ maxWidth: '680px', margin: '70px auto', padding: '0 24px', textAlign: 'center' }}>
-      {/* Glowing Pulsing Icon */}
+    <div style={{ maxWidth: '680px', margin: '60px auto', padding: '0 24px', textAlign: 'center' }}>
+      {/* Icon */}
       <div
         style={{
-          width: '72px',
-          height: '72px',
-          borderRadius: '20px',
-          background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(245, 158, 11, 0.25))',
-          border: '1.5px solid rgba(249, 115, 22, 0.45)',
-          boxShadow: '0 0 32px var(--primary-glow)',
+          width: '64px',
+          height: '64px',
+          borderRadius: '16px',
+          background: '#eff6ff',
+          border: '1px solid #bfdbfe',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '0 auto 24px',
-          color: '#f97316',
+          margin: '0 auto 20px',
+          color: '#2563eb',
         }}
         className="animate-pulse-subtle"
       >
-        <Cpu size={36} color="#fb923c" />
+        <Cpu size={32} color="#2563eb" />
       </div>
 
-      <h2 style={{ fontSize: '2.3rem', marginBottom: '12px' }}>Synthesizing Roadmap</h2>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '32px', fontSize: '1.05rem' }}>
+      <h2 style={{ fontSize: '2.1rem', marginBottom: '10px', color: '#0f172a' }}>Synthesizing Roadmap</h2>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '28px', fontSize: '1rem' }}>
         Deterministic NetworkX graph traversal & 5-factor resource optimization in progress...
       </p>
 
       {/* Progress Bar */}
-      <div style={{ maxWidth: '420px', margin: '0 auto 28px' }}>
-        <div style={{ width: '100%', height: '6px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '3px', overflow: 'hidden' }}>
+      <div style={{ maxWidth: '380px', margin: '0 auto 28px' }}>
+        <div style={{ width: '100%', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
           <div
             style={{
               width: `${progressPercent}%`,
               height: '100%',
-              background: 'linear-gradient(90deg, #f97316, #f59e0b)',
+              background: '#2563eb',
               transition: 'width 0.3s ease',
             }}
           />
         </div>
       </div>
 
-      {/* HUD Terminal Panel */}
+      {/* Terminal Panel */}
       <div
         className="glass-panel"
         style={{
           padding: '24px 28px',
           textAlign: 'left',
-          background: 'rgba(9, 11, 16, 0.88)',
-          border: '1px solid rgba(249, 115, 22, 0.3)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
+          boxShadow: 'var(--shadow-sm)',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', paddingBottom: '10px' }}>
-          <Terminal size={16} color="#f97316" />
-          <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px', borderBottom: '1px solid #f1f5f9', paddingBottom: '10px' }}>
+          <Terminal size={15} color="#2563eb" />
+          <span style={{ fontSize: '0.78rem', color: '#64748b', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
             PATHFINDER_PIPELINE_EXECUTION
           </span>
         </div>
@@ -112,33 +112,33 @@ export const GenerationView: React.FC<GenerationViewProps> = ({ onComplete }) =>
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '14px',
-                padding: '11px 0',
-                borderBottom: step.id < PIPELINE_STEPS.length ? '1px solid rgba(255, 255, 255, 0.04)' : 'none',
-                opacity: isDone || isCurrent ? 1 : 0.3,
-                transition: 'all 0.25s ease',
+                gap: '12px',
+                padding: '10px 0',
+                borderBottom: step.id < PIPELINE_STEPS.length ? '1px solid #f8fafc' : 'none',
+                opacity: isDone || isCurrent ? 1 : 0.35,
+                transition: 'all 0.2s ease',
               }}
             >
               {isDone ? (
-                <CheckCircle2 size={20} color="#10b981" />
+                <CheckCircle2 size={18} color="#059669" />
               ) : isCurrent ? (
-                <Loader2 size={20} color="#fb923c" style={{ animation: 'spin 1s linear infinite' }} />
+                <Loader2 size={18} color="#2563eb" style={{ animation: 'spin 1s linear infinite' }} />
               ) : (
                 <div
                   style={{
-                    width: '20px',
-                    height: '20px',
+                    width: '18px',
+                    height: '18px',
                     borderRadius: '50%',
-                    border: '1.5px solid var(--text-muted)',
+                    border: '1.5px solid #cbd5e1',
                   }}
                 />
               )}
               <span
                 style={{
-                  fontSize: '0.92rem',
+                  fontSize: '0.9rem',
                   fontFamily: isCurrent || isDone ? 'var(--font-mono)' : 'inherit',
                   fontWeight: isCurrent ? 600 : 400,
-                  color: isDone ? 'var(--text-primary)' : isCurrent ? '#fed7aa' : 'var(--text-muted)',
+                  color: isDone ? '#0f172a' : isCurrent ? '#2563eb' : '#64748b',
                 }}
               >
                 {step.text}

@@ -129,80 +129,80 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   };
 
   return (
-    <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '36px 24px 90px' }}>
-      {/* Top Bento Header Bar */}
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '28px 24px 80px' }}>
+      {/* Top Header Grid */}
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '16px',
-          marginBottom: '28px',
+          marginBottom: '24px',
         }}
       >
         {/* Card 1: Goal & Target */}
-        <div className="glass-panel" style={{ padding: '20px 24px', gridColumn: 'span 2' }}>
+        <div className="glass-panel" style={{ padding: '20px 24px', gridColumn: 'span 2', background: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-            <Compass size={18} color="#f97316" />
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+            <Compass size={17} color="#2563eb" />
+            <span style={{ fontSize: '0.78rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
               Curated Roadmap
             </span>
           </div>
-          <h1 style={{ fontSize: '1.65rem', marginBottom: '8px', color: '#ffffff' }}>
-            {profile.target_role || 'Machine Learning Engineer'}
+          <h1 style={{ fontSize: '1.6rem', marginBottom: '8px', color: '#0f172a' }}>
+            {profile.target_role || 'Personalized Track'}
           </h1>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            <span className="badge" style={{ background: 'rgba(249, 115, 22, 0.16)', color: '#fed7aa', border: '1px solid var(--border-accent)' }}>
-              Track: {profile.interest_domain || 'NLP'}
+            <span className="badge" style={{ background: '#eff6ff', color: '#1d4ed8', border: '1px solid #bfdbfe' }}>
+              Track: {profile.interest_domain || 'General Specialization'}
             </span>
-            <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.16)', color: '#fbbf24', border: '1px solid var(--border-amber)' }}>
+            <span className="badge" style={{ background: '#f8fafc', color: '#334155', border: '1px solid #e2e8f0' }}>
               Format: {profile.learning_format}
             </span>
           </div>
         </div>
 
         {/* Card 2: Pace Range */}
-        <div className="glass-panel" style={{ padding: '20px 24px' }}>
+        <div className="glass-panel" style={{ padding: '20px 24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-            <Clock size={18} color="#f59e0b" />
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+            <Clock size={17} color="#d97706" />
+            <span style={{ fontSize: '0.78rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
               Estimated Pace
             </span>
           </div>
-          <div style={{ fontSize: '1.65rem', fontWeight: 700, fontFamily: 'var(--font-heading)', color: '#ffffff' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-heading)', color: '#0f172a' }}>
             {durationRange.min_weeks}–{durationRange.max_weeks} weeks
           </div>
           <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-            at ~{profile.weekly_hours} hrs/week ({totalHours}h total effort)
+            at ~{profile.weekly_hours} hrs/week ({totalHours}h total)
           </div>
         </div>
 
         {/* Card 3: Real Progress */}
-        <div className="glass-panel" style={{ padding: '20px 24px' }}>
+        <div className="glass-panel" style={{ padding: '20px 24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <TrendingUp size={18} color="#10b981" />
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+              <TrendingUp size={17} color="#059669" />
+              <span style={{ fontSize: '0.78rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
                 Progress
               </span>
             </div>
             <button
               onClick={onResetGoal}
               className="btn-secondary"
-              style={{ fontSize: '0.75rem', padding: '4px 8px' }}
+              style={{ fontSize: '0.74rem', padding: '3px 8px' }}
               title="Reset Goal"
             >
-              <RotateCcw size={12} /> Reset
+              <RotateCcw size={12} /> New Goal
             </button>
           </div>
-          <div style={{ fontSize: '1.65rem', fontWeight: 700, fontFamily: 'var(--font-heading)', color: '#34d399' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 700, fontFamily: 'var(--font-heading)', color: '#059669' }}>
             {progressPercent}%
           </div>
-          <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden', marginTop: '6px' }}>
+          <div style={{ width: '100%', height: '6px', background: '#f1f5f9', borderRadius: '3px', overflow: 'hidden', marginTop: '6px' }}>
             <div
               style={{
                 width: `${progressPercent}%`,
                 height: '100%',
-                background: 'linear-gradient(90deg, #10b981, #34d399)',
+                background: '#059669',
                 transition: 'width 0.4s ease',
               }}
             />
@@ -215,26 +215,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         <div
           className="glass-panel animate-fade-in"
           style={{
-            padding: '18px 24px',
-            marginBottom: '28px',
-            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(30, 20, 24, 0.7))',
-            borderColor: 'rgba(239, 68, 68, 0.45)',
-            boxShadow: '0 8px 32px rgba(239, 68, 68, 0.2)',
+            padding: '16px 22px',
+            marginBottom: '24px',
+            background: '#fff5f5',
+            borderColor: '#fca5a5',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '16px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <div style={{ padding: '8px', background: 'rgba(239, 68, 68, 0.2)', borderRadius: '10px' }}>
-              <AlertTriangle size={24} color="#f87171" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ padding: '8px', background: '#fee2e2', borderRadius: '8px' }}>
+              <AlertTriangle size={20} color="#dc2626" />
             </div>
             <div>
-              <div style={{ fontWeight: 700, color: '#fca5a5', fontSize: '1.02rem' }}>
+              <div style={{ fontWeight: 700, color: '#991b1b', fontSize: '0.98rem' }}>
                 Adaptation Triggered: {adaptationBanner.action}
               </div>
-              <div style={{ fontSize: '0.9rem', color: '#f1f5f9', marginTop: '2px' }}>
+              <div style={{ fontSize: '0.88rem', color: '#475569', marginTop: '2px' }}>
                 {adaptationBanner.reason}
               </div>
             </div>
@@ -243,7 +242,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <button
             onClick={() => setAdaptationBanner(null)}
             className="btn-secondary"
-            style={{ fontSize: '0.8rem', padding: '6px 12px' }}
+            style={{ fontSize: '0.78rem', padding: '5px 10px' }}
           >
             Dismiss
           </button>
@@ -254,20 +253,20 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div
         className="glass-panel"
         style={{
-          padding: '14px 22px',
-          marginBottom: '28px',
+          padding: '14px 20px',
+          marginBottom: '24px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: '12px',
-          background: 'rgba(17, 20, 30, 0.65)',
-          border: '1px solid rgba(249, 115, 22, 0.25)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
-          <Sparkles size={16} color="#f97316" />
-          <span><strong>Interactive Demo Scenario Controls:</strong></span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#475569' }}>
+          <Sparkles size={15} color="#2563eb" />
+          <span><strong>Adaptive Scenario Triggers:</strong></span>
         </div>
 
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -283,14 +282,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             }
             className="btn-secondary"
             style={{
-              fontSize: '0.82rem',
-              padding: '7px 14px',
-              borderColor: 'rgba(239, 68, 68, 0.45)',
-              background: 'rgba(239, 68, 68, 0.12)',
-              color: '#fca5a5',
+              fontSize: '0.8rem',
+              padding: '6px 12px',
+              borderColor: '#fca5a5',
+              background: '#fff5f5',
+              color: '#b91c1c',
             }}
           >
-            Simulate Stats Checkpoint Fail (33%)
+            Simulate Checkpoint Failure (33%)
           </button>
 
           <button
@@ -304,14 +303,14 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             }
             className="btn-secondary"
             style={{
-              fontSize: '0.82rem',
-              padding: '7px 14px',
-              borderColor: 'rgba(249, 115, 22, 0.45)',
-              background: 'rgba(249, 115, 22, 0.12)',
-              color: '#fed7aa',
+              fontSize: '0.8rem',
+              padding: '6px 12px',
+              borderColor: '#bfdbfe',
+              background: '#eff6ff',
+              color: '#1d4ed8',
             }}
           >
-            Switch Track: Computer Vision
+            Switch Track (Computer Vision)
           </button>
 
           <button
@@ -324,17 +323,17 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             }
             className="btn-secondary"
             style={{
-              fontSize: '0.82rem',
-              padding: '7px 14px',
+              fontSize: '0.8rem',
+              padding: '6px 12px',
             }}
           >
-            Pacing: Too Easy
+            Pacing Feedback (Fast Pace)
           </button>
         </div>
       </div>
 
       {/* Hero Next Best Action Card */}
-      <div style={{ marginBottom: '36px' }}>
+      <div style={{ marginBottom: '32px' }}>
         <NextBestAction
           item={nextBestAction}
           onStartLearning={handleStartLearning}
@@ -343,12 +342,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       </div>
 
       {/* Section Title */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '22px' }}>
-        <h2 style={{ fontSize: '1.5rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Layers size={22} color="#f97316" /> Prerequisite-Aware Learning Roadmap
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+        <h2 style={{ fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#0f172a' }}>
+          <Layers size={20} color="#2563eb" /> Prerequisite-Aware Learning Roadmap
         </h2>
-        <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-          Click any module to inspect its 5-factor scoring & reasoning
+        <span style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>
+          Click "Open" to visit verified courses or "Fit" to inspect scoring
         </span>
       </div>
 
@@ -365,18 +364,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         className="btn-primary"
         style={{
           position: 'fixed',
-          bottom: '28px',
-          right: '28px',
+          bottom: '24px',
+          right: '24px',
           borderRadius: 'var(--radius-full)',
-          padding: '14px 22px',
-          boxShadow: 'var(--shadow-primary-glow)',
+          padding: '12px 20px',
+          boxShadow: 'var(--shadow-lg)',
           zIndex: 800,
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '8px',
+          fontSize: '0.92rem',
         }}
       >
-        <MessageSquare size={20} />
+        <MessageSquare size={18} />
         <span>Ask Pathfinder AI</span>
       </button>
 

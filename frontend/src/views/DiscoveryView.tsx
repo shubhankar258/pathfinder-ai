@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowRight, Layers, Zap, ShieldCheck, Terminal, Cpu } from 'lucide-react';
+import { Sparkles, ArrowRight, Layers, Zap, ShieldCheck, Terminal, Compass } from 'lucide-react';
 
 interface DiscoveryViewProps {
   onGoalSubmit: (goal: string) => void;
@@ -12,12 +12,23 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
 }) => {
   const [goalText, setGoalText] = useState('');
 
-  const priyaGoal =
-    'I want to become a Machine Learning Engineer in six months. I know basic Python.';
-
-  const handlePriyaClick = () => {
-    setGoalText(priyaGoal);
-  };
+  const demoPresets = [
+    {
+      id: 'demo-ml',
+      label: 'Demo: ML Engineer (6 Mo)',
+      goal: 'I want to become a Machine Learning Engineer in six months. I know basic Python.',
+    },
+    {
+      id: 'demo-cyber',
+      label: 'Demo: Cybersecurity (12 Mo)',
+      goal: 'I want to learn cybersecurity in 12 months.',
+    },
+    {
+      id: 'demo-fullstack',
+      label: 'Demo: Full-Stack Dev (6 Mo)',
+      goal: 'I want to become a Full-Stack Web Developer in 6 months.',
+    },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,34 +38,34 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
   };
 
   return (
-    <div style={{ maxWidth: '880px', margin: '48px auto', padding: '0 24px' }}>
+    <div style={{ maxWidth: '920px', margin: '40px auto 60px', padding: '0 24px' }}>
       {/* Hero Badge */}
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '18px' }}>
         <span
           className="badge"
           style={{
-            background: 'rgba(249, 115, 22, 0.15)',
-            color: '#fdba74',
-            border: '1px solid rgba(249, 115, 22, 0.4)',
+            background: '#eff6ff',
+            color: '#2563eb',
+            border: '1px solid #bfdbfe',
             padding: '6px 16px',
             fontSize: '0.82rem',
             gap: '8px',
+            boxShadow: 'var(--shadow-xs)',
           }}
         >
-          <Cpu size={15} color="#f97316" /> Prerequisite-Aware AI Curriculum Engine
+          <Compass size={15} color="#2563eb" /> Prerequisite-Aware AI Curriculum Engine
         </span>
       </div>
 
       {/* Main Title */}
       <h1
         style={{
-          fontSize: '3.2rem',
+          fontSize: '2.9rem',
           textAlign: 'center',
-          lineHeight: 1.15,
-          marginBottom: '16px',
-          background: 'linear-gradient(135deg, #ffffff 30%, #fed7aa 70%, #f97316 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
+          lineHeight: 1.2,
+          marginBottom: '14px',
+          color: '#0f172a',
+          letterSpacing: '-0.03em',
         }}
       >
         What do you want to learn next?
@@ -62,61 +73,65 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
 
       <p
         style={{
-          fontSize: '1.15rem',
+          fontSize: '1.12rem',
           textAlign: 'center',
           color: 'var(--text-secondary)',
-          maxWidth: '640px',
+          maxWidth: '660px',
           margin: '0 auto 36px',
+          lineHeight: 1.6,
         }}
       >
-        Convert your goal into an explainable, deterministic learning roadmap that adapts dynamically to your confidence and checkpoint performance.
+        Convert your natural-language goal into an explainable, deterministic learning roadmap with real courses, documentation, and dynamic adaptive checkpoints.
       </p>
 
-      {/* Goal Input Glass Panel */}
+      {/* Goal Input Card */}
       <form
         onSubmit={handleSubmit}
         className="glass-panel"
         style={{
-          padding: '24px 28px',
+          padding: '28px 32px',
           marginBottom: '36px',
-          border: '1.5px solid rgba(249, 115, 22, 0.3)',
-          boxShadow: 'var(--shadow-lg)',
+          border: '1px solid #e2e8f0',
+          boxShadow: 'var(--shadow-md)',
+          background: '#ffffff',
           position: 'relative',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <Terminal size={16} color="#f97316" />
-          <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+          <Terminal size={16} color="#2563eb" />
+          <span style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Natural Language Goal Input
           </span>
         </div>
 
-        <div style={{ position: 'relative', marginBottom: '16px' }}>
+        <div style={{ position: 'relative', marginBottom: '18px' }}>
           <textarea
             id="goal-input"
             value={goalText}
             onChange={(e) => setGoalText(e.target.value)}
-            placeholder="e.g. I want to become a Machine Learning Engineer in six months. I know basic Python."
+            placeholder="e.g. I want to learn cybersecurity in 12 months, or I want to become a Machine Learning Engineer in six months."
             rows={4}
             style={{
               width: '100%',
-              background: 'rgba(9, 11, 16, 0.75)',
-              border: '1px solid var(--border-subtle)',
+              background: '#f8fafc',
+              border: '1px solid #cbd5e1',
               borderRadius: 'var(--radius-md)',
               padding: '16px 20px',
-              fontSize: '1.1rem',
+              fontSize: '1.05rem',
               color: 'var(--text-primary)',
               resize: 'none',
               outline: 'none',
-              lineHeight: 1.55,
-              transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+              lineHeight: 1.6,
+              transition: 'border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease',
             }}
             onFocus={(e) => {
               e.target.style.borderColor = 'var(--primary)';
-              e.target.style.boxShadow = '0 0 18px rgba(249, 115, 22, 0.35)';
+              e.target.style.backgroundColor = '#ffffff';
+              e.target.style.boxShadow = '0 0 0 3px rgba(37, 99, 235, 0.15)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = 'var(--border-subtle)';
+              e.target.style.borderColor = '#cbd5e1';
+              e.target.style.backgroundColor = '#f8fafc';
               e.target.style.boxShadow = 'none';
             }}
           />
@@ -124,25 +139,28 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Quick Persona:
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+              Quick Presets:
             </span>
-            <button
-              type="button"
-              id="priya-demo-btn"
-              onClick={handlePriyaClick}
-              className="btn-secondary"
-              style={{
-                fontSize: '0.85rem',
-                padding: '6px 14px',
-                borderRadius: 'var(--radius-full)',
-                borderColor: 'rgba(249, 115, 22, 0.5)',
-                background: 'rgba(249, 115, 22, 0.15)',
-                color: '#fed7aa',
-              }}
-            >
-              <Sparkles size={14} color="#f97316" /> Priya (ML Engineer in 6 Mo)
-            </button>
+            {demoPresets.map((preset) => (
+              <button
+                key={preset.id}
+                type="button"
+                id={preset.id}
+                onClick={() => setGoalText(preset.goal)}
+                className="btn-secondary"
+                style={{
+                  fontSize: '0.82rem',
+                  padding: '6px 12px',
+                  borderRadius: 'var(--radius-full)',
+                  borderColor: '#cbd5e1',
+                  background: '#f8fafc',
+                  color: '#334155',
+                }}
+              >
+                <Sparkles size={13} color="#2563eb" /> {preset.label}
+              </button>
+            ))}
           </div>
 
           <button
@@ -151,8 +169,8 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
             disabled={isLoading || !goalText.trim()}
             className="btn-primary"
             style={{
-              fontSize: '1rem',
-              padding: '12px 28px',
+              fontSize: '0.98rem',
+              padding: '11px 26px',
               opacity: !goalText.trim() || isLoading ? 0.6 : 1,
             }}
           >
@@ -160,54 +178,54 @@ export const DiscoveryView: React.FC<DiscoveryViewProps> = ({
               <>Parsing Goal NLU...</>
             ) : (
               <>
-                Build My Path <ArrowRight size={18} />
+                Build My Path <ArrowRight size={17} />
               </>
             )}
           </button>
         </div>
       </form>
 
-      {/* Bento Grid Feature Highlights */}
+      {/* Feature Highlights Grid */}
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '18px',
+          gap: '20px',
         }}
       >
-        <div className="glass-panel" style={{ padding: '22px' }}>
+        <div className="glass-panel" style={{ padding: '24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-            <div style={{ padding: '8px', background: 'rgba(249, 115, 22, 0.16)', borderRadius: '10px', color: '#f97316' }}>
-              <Layers size={22} />
+            <div style={{ padding: '8px', background: '#eff6ff', borderRadius: '10px', color: '#2563eb' }}>
+              <Layers size={20} />
             </div>
-            <h3 style={{ fontSize: '1.1rem' }}>Deterministic Graph Logic</h3>
+            <h3 style={{ fontSize: '1.05rem', color: '#0f172a' }}>Deterministic Graph Logic</h3>
           </div>
-          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            Sequencing is driven by strict NetworkX topological sort. Prerequisite orders are never hallucinated by LLMs.
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+            Sequencing is driven by strict NetworkX topological sort. Prerequisite orders are mathematically validated.
           </p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '22px' }}>
+        <div className="glass-panel" style={{ padding: '24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-            <div style={{ padding: '8px', background: 'rgba(16, 185, 129, 0.15)', borderRadius: '10px', color: '#34d399' }}>
-              <Zap size={22} />
+            <div style={{ padding: '8px', background: '#ecfdf5', borderRadius: '10px', color: '#059669' }}>
+              <Zap size={20} />
             </div>
-            <h3 style={{ fontSize: '1.1rem' }}>Live Adaptive Triggers</h3>
+            <h3 style={{ fontSize: '1.05rem', color: '#0f172a' }}>Live Adaptive Triggers</h3>
           </div>
-          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            Struggling on a checkpoint? The engine automatically force-sets WEAK status and inserts targeted refresher resources.
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+            Struggling on a checkpoint? The engine sets WEAK status and injects targeted refresher resources.
           </p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '22px' }}>
+        <div className="glass-panel" style={{ padding: '24px', background: '#ffffff' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-            <div style={{ padding: '8px', background: 'rgba(245, 158, 11, 0.16)', borderRadius: '10px', color: '#f59e0b' }}>
-              <ShieldCheck size={22} />
+            <div style={{ padding: '8px', background: '#fffbeb', borderRadius: '10px', color: '#d97706' }}>
+              <ShieldCheck size={20} />
             </div>
-            <h3 style={{ fontSize: '1.1rem' }}>5-Factor Recommender</h3>
+            <h3 style={{ fontSize: '1.05rem', color: '#0f172a' }}>5-Factor Recommender</h3>
           </div>
-          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-            Personalized ranking across Difficulty, Format, 2-Week Milestone capacity TimeFit, Topics, and Curated Quality.
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+            Personalized ranking across Difficulty, Format, 2-Week Sprint Capacity TimeFit, and Verified Quality.
           </p>
         </div>
       </div>

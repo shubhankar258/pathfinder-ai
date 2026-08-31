@@ -1,6 +1,6 @@
 import React from 'react';
 import { RoadmapItem } from '../types';
-import { Sparkles, ArrowRight, Clock, Award, AlertTriangle, CheckCircle, BookOpen, Layers, Zap } from 'lucide-react';
+import { Sparkles, ArrowRight, Clock, Award, AlertTriangle, CheckCircle, BookOpen, ExternalLink, Zap } from 'lucide-react';
 
 interface NextBestActionProps {
   item?: RoadmapItem | null;
@@ -15,61 +15,40 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
 }) => {
   if (!item) {
     return (
-      <div className="glass-panel" style={{ padding: '32px', textAlign: 'center' }}>
-        <CheckCircle size={40} color="#10b981" style={{ margin: '0 auto 12px' }} />
-        <h3 style={{ fontSize: '1.4rem' }}>All Curriculum Milestones Completed!</h3>
-        <p style={{ color: 'var(--text-secondary)' }}>You have completed all prerequisite and target skills in your roadmap.</p>
+      <div className="glass-panel" style={{ padding: '36px', textAlign: 'center', background: '#ffffff' }}>
+        <CheckCircle size={44} color="#059669" style={{ margin: '0 auto 12px' }} />
+        <h3 style={{ fontSize: '1.4rem', color: '#0f172a' }}>All Curriculum Milestones Completed!</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>You have successfully completed all prerequisite and target skills in your roadmap.</p>
       </div>
     );
   }
 
   const isWeak = item.state === 'WEAK' || item.confidence_tier === 'WEAK';
-  const isQuizAvailable = item.skill_id === 'statistics_probability';
+  const hasQuiz = ['statistics_probability', 'network_fundamentals', 'web_security', 'javascript_typescript', 'docker_containers'].includes(item.skill_id);
 
   return (
     <div
-      className="glass-panel-elevated"
+      className="glass-panel"
       style={{
         padding: '32px 36px',
         position: 'relative',
         overflow: 'hidden',
-        border: isWeak ? '1.5px solid rgba(239, 68, 68, 0.55)' : '1.5px solid rgba(249, 115, 22, 0.5)',
-        background: isWeak
-          ? 'linear-gradient(135deg, rgba(48, 18, 24, 0.72) 0%, rgba(24, 16, 26, 0.55) 100%)'
-          : 'linear-gradient(135deg, rgba(42, 22, 16, 0.75) 0%, rgba(18, 22, 34, 0.55) 100%)',
-        backdropFilter: 'blur(30px) saturate(200%)',
-        WebkitBackdropFilter: 'blur(30px) saturate(200%)',
-        boxShadow: isWeak
-          ? '0 20px 48px rgba(239, 68, 68, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3)'
-          : '0 20px 48px rgba(249, 115, 22, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3)',
+        border: isWeak ? '1.5px solid #fca5a5' : '1px solid #cbd5e1',
+        background: isWeak ? '#fff5f5' : '#ffffff',
+        boxShadow: 'var(--shadow-md)',
       }}
     >
-      {/* Specular glow orb */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '-80px',
-          right: '-80px',
-          width: '260px',
-          height: '260px',
-          borderRadius: '50%',
-          background: isWeak ? 'rgba(239, 68, 68, 0.25)' : 'rgba(249, 115, 22, 0.25)',
-          filter: 'blur(55px)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px', marginBottom: '18px' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
             <span
               className="badge"
               style={{
-                background: isWeak ? 'var(--danger-bg)' : 'rgba(249, 115, 22, 0.22)',
-                color: isWeak ? '#fca5a5' : '#fed7aa',
-                border: isWeak ? '1px solid var(--danger-border)' : '1px solid var(--border-accent)',
-                padding: '6px 15px',
-                fontSize: '0.8rem',
+                background: isWeak ? '#fef2f2' : '#eff6ff',
+                color: isWeak ? '#b91c1c' : '#1d4ed8',
+                border: isWeak ? '1px solid #fecaca' : '1px solid #bfdbfe',
+                padding: '5px 12px',
+                fontSize: '0.78rem',
               }}
             >
               {isWeak ? <AlertTriangle size={14} /> : <Zap size={14} />}
@@ -77,33 +56,57 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
             </span>
 
             <span className="badge badge-available">Phase {item.phase}</span>
-            <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--text-secondary)' }}>
+            <span className="badge badge-locked">
               Mode: {item.learning_mode}
             </span>
           </div>
 
-          <h2 style={{ fontSize: '2.05rem', fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+          <h2 style={{ fontSize: '1.85rem', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '6px' }}>
             {item.recommended_resource ? item.recommended_resource.title : item.skill_name}
           </h2>
+
+          <div style={{ fontSize: '0.92rem', color: 'var(--text-secondary)' }}>
+            Skill Target: <strong style={{ color: '#0f172a' }}>{item.skill_name}</strong>
+          </div>
         </div>
 
         {/* Action CTAs */}
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-          {isQuizAvailable && onTakeQuiz && (
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+          {item.recommended_resource?.url && (
+            <a
+              href={item.recommended_resource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+              style={{
+                padding: '10px 18px',
+                fontSize: '0.92rem',
+                borderColor: '#cbd5e1',
+                color: '#2563eb',
+                fontWeight: 600,
+                textDecoration: 'none',
+              }}
+              title="Open verified official course / documentation in a new tab"
+            >
+              <ExternalLink size={16} /> Open Course / Resource ↗
+            </a>
+          )}
+
+          {hasQuiz && onTakeQuiz && (
             <button
               id="take-checkpoint-quiz-btn"
               type="button"
               onClick={() => onTakeQuiz(item)}
               className="btn-secondary"
               style={{
-                borderColor: 'rgba(245, 158, 11, 0.55)',
-                background: 'rgba(245, 158, 11, 0.18)',
-                color: '#fef08a',
-                padding: '12px 22px',
-                fontSize: '0.94rem',
+                borderColor: '#fde68a',
+                background: '#fffbeb',
+                color: '#b45309',
+                padding: '10px 18px',
+                fontSize: '0.92rem',
               }}
             >
-              <Award size={18} color="#f59e0b" /> Take Checkpoint Quiz
+              <Award size={16} color="#d97706" /> Checkpoint Quiz
             </button>
           )}
 
@@ -113,58 +116,51 @@ export const NextBestAction: React.FC<NextBestActionProps> = ({
             onClick={() => onStartLearning(item)}
             className="btn-primary"
             style={{
-              padding: '12px 28px',
-              background: isWeak
-                ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(185, 28, 28, 0.95))'
-                : 'linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(234, 88, 12, 0.95))',
-              boxShadow: isWeak
-                ? '0 6px 24px rgba(239, 68, 68, 0.45)'
-                : '0 6px 24px rgba(249, 115, 22, 0.5)',
+              padding: '10px 22px',
+              background: isWeak ? '#dc2626' : 'var(--primary)',
             }}
           >
-            {item.state === 'COMPLETED' ? 'Mark In Progress' : isWeak ? 'Start Refresher' : 'Start Module'}{' '}
-            <ArrowRight size={18} />
+            {item.state === 'COMPLETED' ? 'Mark In Progress' : isWeak ? 'Start Refresher' : 'Complete Module'}{' '}
+            <ArrowRight size={16} />
           </button>
         </div>
       </div>
 
-      {/* Explanation Glass Quote Block */}
+      {/* Explanation Quote Block */}
       <div
         style={{
-          background: 'rgba(10, 14, 24, 0.65)',
-          backdropFilter: 'blur(16px)',
+          background: isWeak ? '#fff1f2' : '#f8fafc',
           borderRadius: 'var(--radius-md)',
-          padding: '16px 20px',
-          borderLeft: `4px solid ${isWeak ? '#ef4444' : 'var(--primary)'}`,
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRight: '1px solid rgba(255, 255, 255, 0.05)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-          marginBottom: '20px',
-          fontSize: '0.98rem',
-          color: '#e2e8f0',
-          lineHeight: 1.6,
-          boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+          padding: '14px 18px',
+          borderLeft: `4px solid ${isWeak ? '#dc2626' : '#2563eb'}`,
+          borderTop: '1px solid #e2e8f0',
+          borderRight: '1px solid #e2e8f0',
+          borderBottom: '1px solid #e2e8f0',
+          marginBottom: '18px',
+          fontSize: '0.95rem',
+          color: '#334155',
+          lineHeight: 1.55,
         }}
       >
-        <span style={{ color: isWeak ? '#fca5a5' : '#fed7aa', fontWeight: 600 }}>Why right now: </span>
+        <span style={{ color: isWeak ? '#991b1b' : '#1d4ed8', fontWeight: 600 }}>Why right now: </span>
         {item.reasoning}
       </div>
 
       {/* Metadata Footprint */}
-      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Clock size={16} color="#f97316" />
+          <Clock size={15} color="#2563eb" />
           <span><strong>{item.estimated_hours} hours</strong> (Paced for 2-week milestone window)</span>
         </div>
 
         {item.recommended_resource && (
           <>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <BookOpen size={16} color="#34d399" />
+              <BookOpen size={15} color="#059669" />
               <span>Format: <strong>{item.recommended_resource.format}</strong></span>
             </div>
             <div>
-              Provider: <strong style={{ color: '#ffffff' }}>{item.recommended_resource.provider || 'Pathfinder Studio'}</strong>
+              Provider: <strong style={{ color: '#0f172a' }}>{item.recommended_resource.provider || 'Official Documentation'}</strong>
             </div>
           </>
         )}

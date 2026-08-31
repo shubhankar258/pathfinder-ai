@@ -37,7 +37,7 @@ This repository contains the **Version 1.0 (v1.0.0)** production-grade prototype
    * **Stage B (Scoring Formula):**
      $$S(r) = 0.35 \times \text{DifficultyFit} + 0.25 \times \text{FormatFit} + 0.20 \times \text{TimeFit} + 0.10 \times \text{InterestAlignment} + 0.10 \times \text{QualityScore}$$
    * **Milestone TimeFit:** Evaluates resource duration against a 2-week milestone capacity window ($\text{weekly\_hours} \times 2$). A 10h module for an 8h/week learner scores a perfect **1.0**.
-4. **Multi-Skill Resource Deduplication:** Shared multi-skill courses (e.g., comprehensive data manipulation bundles) are deduplicated across the entire roadmap. Earlier skills retain the resource duration, while later skills carry `covered_by_resource_id` with 0.0h, ensuring accurate timeline pacing (Priya's canonical path lands on **exactly 190.0 hours**).
+4. **Multi-Skill Resource Deduplication:** Shared multi-skill courses (e.g., comprehensive data manipulation bundles) are deduplicated across the entire roadmap. Earlier skills retain the resource duration, while later skills carry `covered_by_resource_id` with 0.0h, ensuring accurate timeline pacing (the canonical ML demo path lands on **exactly 190.0 hours**).
 5. **Three Dynamic Adaptive Triggers:**
    * `CHECKPOINT_FAILED`: Sets skill status to `WEAK`, locks downstream modules, and inserts a curated refresher before the blocked concept.
    * `DIFFICULTY_FEEDBACK`: Recalibrates resource difficulty and pace for uncompleted modules based on learner feedback.
@@ -56,10 +56,10 @@ pathfinder/
 │   ├── app/
 │   │   ├── api/             # FastAPI Endpoints: /api/onboard/parse, /api/roadmap/generate, /api/roadmap/adapt, /api/quiz/{id}
 │   │   ├── core/            # Deterministic Python: dag_engine, confidence, recommender, roadmap_builder, adaptation
-│   │   ├── data/            # Curated JSON datasets: skill_dag.json (36 nodes), catalog.json (42 resources), quiz_bank.json
+│   │   ├── data/            # Curated JSON datasets: skill_dag.json, catalog.json, quiz_bank.json
 │   │   ├── schemas/         # Strict Pydantic models for profiles, resources, roadmaps, and events
 │   │   └── services/        # Structured NLU Goal Parser & Grounded Assistant Generator
-│   └── tests/               # 24 automated unit and integration tests (100% pass rate)
+│   └── tests/               # Automated unit and integration tests (100% pass rate)
 ├── frontend/
 │   ├── src/
 │   │   ├── components/      # CardNav (GSAP), Threads (WebGL), NextBestAction, RoadmapGraph, QuizModal, ScoreModal
@@ -127,7 +127,7 @@ npm run dev
 
 ## Running Automated Tests
 
-Run the complete 24-test pytest suite:
+Run the complete pytest suite:
 ```bash
 pytest -v
 ```
@@ -143,8 +143,8 @@ python backend/verify_sprint1.py
 
 To effectively evaluate the system, follow the canonical test scenarios:
 
-1. **The Priya Persona Flow (Baseline Validation):**
-   * On the Discovery screen, click **"Priya (ML Engineer in 6 Mo)"** to populate: *"I want to become a Machine Learning Engineer in six months. I know basic Python."*
+1. **The Machine Learning Demo Flow (Baseline Validation):**
+   * On the Discovery screen, click **"Demo: ML Engineer (6 Mo)"** to populate: *"I want to become a Machine Learning Engineer in six months. I know basic Python."*
    * Observe the structured NLU extraction. Select **8 hrs/week**, **Hands-on Projects**, and **NLP & LLMs** on the profile completion cards.
    * **Verification:** The synthesized roadmap totals **exactly 190.0 hours** (21–26 weeks pace at 8h/week), `python_basics` is placed in `REFRESHER` mode (5h), and the Next Best Action recommends **Python Quickstart & Syntax Refresher**.
 

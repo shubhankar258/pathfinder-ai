@@ -85,7 +85,7 @@ Skill id convention: lowercase `snake_case`, full words, except for universally 
 
 ### 1.10 One decision neither document made: WEAK recovery
 
-Neither source defined how a skill leaves WEAK, which the demo needs the moment Priya finishes her refresher.
+Neither source defined how a skill leaves WEAK, which the demo needs the moment Demo User finishes her refresher.
 
 **Decided here:** WEAK → DEVELOPING on completion of a refresher resource *plus* a self-rating of 3 or higher. A self-rating of 1–2 keeps it WEAK (and the refresher can be re-offered). WEAK never jumps straight to PRACTICED or VERIFIED.
 
@@ -106,7 +106,7 @@ Neither source defined how a skill leaves WEAK, which the demo needs the moment 
 - Adaptive path mutation on three triggers: checkpoint failure, difficulty feedback, interest change
 - A persistent dashboard: roadmap visualization, progress, "Next Best Action" card, explanations
 - An AI assistant chat drawer answering questions from current roadmap state
-- The canonical demo persona "Priya" seeded and working end to end
+- The canonical demo persona "Demo User" seeded and working end to end
 
 ### EXPLICITLY DO NOT BUILD
 
@@ -723,13 +723,13 @@ What stayed          What changed
 
 ---
 
-## 9. Canonical Demo Persona — Priya
+## 9. Canonical Demo Persona — Demo User
 
 Use this name and data everywhere. Earlier drafts used "Alex" for an identical profile; no Alex reference may remain in code, data, comments, or demo materials.
 
 ```json
 {
-  "user_id": "priya_demo",
+  "user_id": "demo_user",
   "goal_raw": "I want to become a Machine Learning Engineer in six months. I know basic Python.",
   "target_role": "Machine Learning Engineer",
   "target_skill": "ml_engineer_target",
@@ -764,11 +764,11 @@ TOTAL                         190 hours
 
 ### Demo script
 
-**Step 1 — Goal input.** Priya types the `goal_raw` text on the Discovery screen.
+**Step 1 — Goal input.** Demo User types the `goal_raw` text on the Discovery screen.
 
-**Step 2 — Extraction and cards.** The parser extracts `target_role`, `timeline_weeks`, and `python_basics: FAMILIAR`. It cannot extract `weekly_hours`, `learning_format`, or `interest_domain`. Those three appear as interactive cards. Priya selects 8 hrs/week, hands-on, NLP. Fields already extracted are never re-asked.
+**Step 2 — Extraction and cards.** The parser extracts `target_role`, `timeline_weeks`, and `python_basics: FAMILIAR`. It cannot extract `weekly_hours`, `learning_format`, or `interest_domain`. Those three appear as interactive cards. Demo User selects 8 hrs/week, hands-on, NLP. Fields already extracted are never re-asked.
 
-**Step 3 — Confidence handling.** Priya said she knows Python. This does **not** skip Python. `python_basics` is FAMILIAR → `REFRESHER`, so a Python review appears in the path. This is the moment that demonstrates tiered confidence — call it out during the demo.
+**Step 3 — Confidence handling.** Demo User said she knows Python. This does **not** skip Python. `python_basics` is FAMILIAR → `REFRESHER`, so a Python review appears in the path. This is the moment that demonstrates tiered confidence — call it out during the demo.
 
 **Step 4 — Roadmap generated.**
 
@@ -783,7 +783,7 @@ Phase 6: Capstone
 
 Dashboard shows "Estimated 22–26 weeks at ~8 hrs/week." The order comes from NetworkX, not from a hardcoded list.
 
-**Step 5 — The adaptive moment (the core beat).** Priya reaches Statistics & Probability and takes the hand-authored 3-question quiz. She scores 1/3 (33%). This fires `CHECKPOINT_FAILED`: `statistics_probability` is force-set to WEAK regardless of prior state, `ml_fundamentals` stays LOCKED, and the curated Statistics refresher is inserted before it.
+**Step 5 — The adaptive moment (the core beat).** Demo User reaches Statistics & Probability and takes the hand-authored 3-question quiz. She scores 1/3 (33%). This fires `CHECKPOINT_FAILED`: `statistics_probability` is force-set to WEAK regardless of prior state, `ml_fundamentals` stays LOCKED, and the curated Statistics refresher is inserted before it.
 
 ```
 Next Best Action (before):  Begin Machine Learning Fundamentals
@@ -792,7 +792,7 @@ Next Best Action (after):   Review Statistics Fundamentals
 
 Make this visually obvious. It is the single most important moment in the demo.
 
-**Step 6 — Interest change (stretch, only if everything above works).** Priya says she is now more interested in Computer Vision. `INTEREST_CHANGED` fires: Python, Statistics, and ML Fundamentals are untouched; only the not-yet-started NLP branch is swapped for Computer Vision. The dashboard shows kept vs. swapped nodes.
+**Step 6 — Interest change (stretch, only if everything above works).** Demo User says she is now more interested in Computer Vision. `INTEREST_CHANGED` fires: Python, Statistics, and ML Fundamentals are untouched; only the not-yet-started NLP branch is swapped for Computer Vision. The dashboard shows kept vs. swapped nodes.
 
 This one scenario exercises every claim in Section 0 — cold-start handling, tiered confidence, explainable sequencing, performance-based adaptation, and interest-based adaptation — without touching the out-of-graph path, which is deliberately not part of the primary demo.
 
@@ -1008,14 +1008,14 @@ Each step must be independently testable before moving on.
 2. `skill_dag.json` with 30–50 nodes + `dag_engine.py` (load, DAG validation, ancestors, topological sort with deterministic tie-breaking).
 3. `confidence.py` state machine (Section 5).
 4. `catalog.json` with ~60 resources — `topics`, `skills_taught`, `difficulty_level`, `estimated_hours`, `quality_score`, `is_refresher` all populated — plus `recommender.py` (both stages).
-5. Construct Priya's profile in a plain script, run generation end to end, print the roadmap, and verify it matches Section 9's phase breakdown and lands near 190 hours. **Do this before writing a single line of FastAPI or React.**
+5. Construct Demo User's profile in a plain script, run generation end to end, print the roadmap, and verify it matches Section 9's phase breakdown and lands near 190 hours. **Do this before writing a single line of FastAPI or React.**
 6. Simulate the checkpoint failure against that roadmap and verify the refresher is inserted, dependents stay LOCKED, and Next Best Action changes — still in a script.
 
 ### Sprint 2 — Roadmap intelligence
 
 7. Full roadmap generator: phases, dedupe, reason codes, `reasoning` rendering.
 8. Timeline estimator producing a range.
-9. All three adaptation triggers, tested against Priya's scenario.
+9. All three adaptation triggers, tested against Demo User's scenario.
 
 ### Sprint 3 — AI layer
 
@@ -1027,10 +1027,10 @@ Each step must be independently testable before moving on.
 ### Sprint 4 — API and frontend
 
 14. Wire the four endpoints around the Sprint 1–3 logic. No business logic in route handlers.
-15. Build the four screens in order: Discovery → Profile Cards → Generation → Dashboard. The UI consumes backend-generated state; Priya may seed demo data, but never hardcode her roadmap into components.
+15. Build the four screens in order: Discovery → Profile Cards → Generation → Dashboard. The UI consumes backend-generated state; Demo User may seed demo data, but never hardcode her roadmap into components.
 16. Full end-to-end pass of the demo script, including the interest-change step if time allows.
 
-**Do not start Sprint 4 before Sprint 1 is working and manually verified against Priya's data.** The deterministic core is the actual product; the frontend and LLM integration are presentation around it.
+**Do not start Sprint 4 before Sprint 1 is working and manually verified against Demo User's data.** The deterministic core is the actual product; the frontend and LLM integration are presentation around it.
 
 ---
 
@@ -1062,7 +1062,7 @@ Each step must be independently testable before moving on.
 ### Roadmap
 - A resource teaching two skills appears once; hours counted once; total is stable.
 - VERIFIED skills are excluded; FAMILIAR skills are present with `REFRESHER` mode.
-- Priya's generated total lands within tolerance of 190 hours.
+- Demo User's generated total lands within tolerance of 190 hours.
 - Duration is returned as a range, never a single week count or a date.
 
 ### Adaptation
@@ -1077,7 +1077,7 @@ Each step must be independently testable before moving on.
 
 Verify each before calling the implementation complete.
 
-- [ ] Canonical persona is **Priya**. No "Alex" anywhere in code, data, comments, or docs.
+- [ ] Canonical persona is **Demo User**. No "Alex" anywhere in code, data, comments, or docs.
 - [ ] No runtime graph mutation of any kind.
 - [ ] LLM parses and explains. LLM does not sequence, rank, or mutate.
 - [ ] Confidence is a state machine. No weighted averaging. Failure is a hard override.
@@ -1157,7 +1157,7 @@ Verify each before calling the implementation complete.
 
 Do not propose a different architecture. Do not simplify away the hard parts. Do not replace deterministic logic with LLM calls. Do not reintroduce weighted confidence averaging, binary difficulty matching, title-substring interest matching, or `resource_hours <= weekly_hours` time fitting. Do not mutate the graph.
 
-Start by inspecting the existing repository. Then report what exists, identify gaps against this document, propose the exact implementation sequence, implement incrementally, run tests after each core engine, keep the frontend connected to real backend logic, and validate the complete Priya flow end to end.
+Start by inspecting the existing repository. Then report what exists, identify gaps against this document, propose the exact implementation sequence, implement incrementally, run tests after each core engine, keep the frontend connected to real backend logic, and validate the complete Demo User flow end to end.
 
 Where a detail is ambiguous, prefer the deterministic and explainable interpretation consistent with this specification rather than inventing new architecture.
 

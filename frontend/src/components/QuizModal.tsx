@@ -36,7 +36,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
     }));
   };
 
-  const handlePriyaQuickFail = () => {
+  const handleDemoQuickFail = () => {
     if (!quizData) return;
     const answers: Record<string, number> = {};
     quizData.questions.forEach((q, idx) => {
@@ -67,17 +67,17 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
 
   if (loading) {
     return (
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(5, 7, 14, 0.7)', backdropFilter: 'blur(24px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
-        <div className="glass-panel" style={{ padding: '32px' }}>Loading Assessment Questions...</div>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+        <div className="glass-panel" style={{ padding: '32px', background: '#ffffff' }}>Loading Assessment Questions...</div>
       </div>
     );
   }
 
   if (error || !quizData) {
     return (
-      <div style={{ position: 'fixed', inset: 0, background: 'rgba(5, 7, 14, 0.7)', backdropFilter: 'blur(24px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
-        <div className="glass-panel" style={{ padding: '32px', maxWidth: '420px' }}>
-          <h3>Quiz Not Found</h3>
+      <div style={{ position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+        <div className="glass-panel" style={{ padding: '32px', maxWidth: '420px', background: '#ffffff' }}>
+          <h3 style={{ color: '#0f172a' }}>Quiz Not Found</h3>
           <p style={{ color: 'var(--text-secondary)', margin: '14px 0' }}>{error || 'No checkpoint quiz registered for this skill.'}</p>
           <button onClick={onClose} className="btn-secondary">Close</button>
         </div>
@@ -93,9 +93,9 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
       style={{
         position: 'fixed',
         inset: 0,
-        background: 'rgba(5, 7, 14, 0.72)',
-        backdropFilter: 'blur(30px) saturate(190%)',
-        WebkitBackdropFilter: 'blur(30px) saturate(190%)',
+        background: 'rgba(15, 23, 42, 0.45)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -105,14 +105,14 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
       onClick={onClose}
     >
       <div
-        className="glass-panel-elevated"
+        className="glass-panel"
         style={{
-          maxWidth: '760px',
+          maxWidth: '720px',
           width: '100%',
-          padding: '36px',
-          background: 'linear-gradient(135deg, rgba(22, 28, 44, 0.9) 0%, rgba(14, 18, 28, 0.88) 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.3)',
+          padding: '32px',
+          background: '#ffffff',
+          border: '1px solid #cbd5e1',
+          boxShadow: 'var(--shadow-lg)',
           maxHeight: '90vh',
           overflowY: 'auto',
         }}
@@ -121,39 +121,39 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <Award size={20} color="#f59e0b" />
-              <span className="badge badge-refresher">
+              <Award size={18} color="#2563eb" />
+              <span className="badge badge-available">
                 Hand-Authored Skill Checkpoint
               </span>
             </div>
-            <h2 style={{ fontSize: '1.7rem', color: '#ffffff' }}>{quizData.skill_name} Verification</h2>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            <h2 style={{ fontSize: '1.6rem', color: '#0f172a', marginBottom: '4px' }}>{quizData.skill_name} Verification</h2>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
               Pass threshold: ≥ 50% to verify. Scores &lt; 50% trigger an automatic adaptive refresher.
             </p>
           </div>
-          <button onClick={onClose} className="btn-secondary" style={{ padding: '8px' }}>
+          <button onClick={onClose} className="btn-secondary" style={{ padding: '6px' }}>
             <X size={18} />
           </button>
         </div>
 
         {/* Demo Quick-Fill Helper */}
-        <div style={{ marginBottom: '24px' }}>
+        <div style={{ marginBottom: '20px' }}>
           <button
             type="button"
-            id="priya-fail-quiz-btn"
-            onClick={handlePriyaQuickFail}
+            id="demo-fail-quiz-btn"
+            onClick={handleDemoQuickFail}
             className="btn-secondary"
             style={{
               width: '100%',
               justifyContent: 'center',
-              fontSize: '0.9rem',
-              borderColor: 'rgba(239, 68, 68, 0.5)',
-              background: 'rgba(239, 68, 68, 0.14)',
-              color: '#fca5a5',
-              padding: '12px 18px',
+              fontSize: '0.88rem',
+              borderColor: '#fca5a5',
+              background: '#fff5f5',
+              color: '#b91c1c',
+              padding: '10px 16px',
             }}
           >
-            <Sparkles size={16} color="#ef4444" /> Quick-Fill Priya's Checkpoint (1/3 Correct = 33% Failure)
+            <Sparkles size={15} color="#dc2626" /> Quick-Fill Demo Checkpoint (1/3 Correct = 33% Failure)
           </button>
         </div>
 
@@ -162,20 +162,18 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
             <div
               key={q.id}
               style={{
-                background: 'rgba(10, 14, 24, 0.65)',
-                backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#f8fafc',
+                border: '1px solid #e2e8f0',
                 borderRadius: 'var(--radius-md)',
-                padding: '20px',
-                marginBottom: '20px',
-                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.08)',
+                padding: '18px 20px',
+                marginBottom: '16px',
               }}
             >
-              <div style={{ fontWeight: 600, fontSize: '1.02rem', marginBottom: '16px', color: '#ffffff' }}>
+              <div style={{ fontWeight: 600, fontSize: '0.98rem', marginBottom: '14px', color: '#0f172a' }}>
                 Q{idx + 1}. {q.question}
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {q.options.map((option, optIdx) => {
                   const isSelected = selectedAnswers[q.id] === optIdx;
                   return (
@@ -185,14 +183,13 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
                         display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        padding: '12px 18px',
+                        padding: '10px 14px',
                         borderRadius: 'var(--radius-sm)',
-                        border: `1.5px solid ${isSelected ? 'var(--primary)' : 'rgba(255, 255, 255, 0.09)'}`,
-                        background: isSelected ? 'rgba(249, 115, 22, 0.2)' : 'rgba(0, 0, 0, 0.25)',
-                        backdropFilter: 'blur(10px)',
+                        border: `1.5px solid ${isSelected ? '#2563eb' : '#e2e8f0'}`,
+                        background: isSelected ? '#eff6ff' : '#ffffff',
                         cursor: 'pointer',
-                        fontSize: '0.94rem',
-                        color: isSelected ? '#ffffff' : 'var(--text-secondary)',
+                        fontSize: '0.92rem',
+                        color: isSelected ? '#1d4ed8' : '#334155',
                         transition: 'all 0.15s ease',
                       }}
                     >
@@ -201,7 +198,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
                         name={q.id}
                         checked={isSelected}
                         onChange={() => handleSelect(q.id, optIdx)}
-                        style={{ accentColor: 'var(--primary)' }}
+                        style={{ accentColor: '#2563eb' }}
                       />
                       <span>{option}</span>
                     </label>
@@ -211,8 +208,8 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
             </div>
           ))}
 
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '28px' }}>
-            <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '24px' }}>
+            <span style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
               {answeredCount} of {quizData.questions.length} answered
             </span>
 
@@ -221,7 +218,7 @@ export const QuizModal: React.FC<QuizModalProps> = ({ skillId, onClose, onQuizCo
               id="submit-quiz-btn"
               disabled={!isComplete || isSubmitting}
               className="btn-primary"
-              style={{ padding: '13px 32px', opacity: isComplete ? 1 : 0.5 }}
+              style={{ padding: '10px 28px', opacity: isComplete ? 1 : 0.5 }}
             >
               {isSubmitting ? 'Evaluating Score...' : 'Submit Checkpoint'}
             </button>
