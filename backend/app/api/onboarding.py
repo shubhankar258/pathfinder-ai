@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 from ..services.llm_service import parse_goal_nlp
 
-router = APIRouter(prefix="/api/onboard", tags=["Onboarding"])
+router = APIRouter(prefix="/onboard", tags=["Onboarding"])
 
 
 class ParseGoalRequest(BaseModel):

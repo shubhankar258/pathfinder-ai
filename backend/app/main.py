@@ -40,13 +40,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Register API routes FIRST
+# Register API routes with /api prefix AND without /api prefix
+app.include_router(onboarding.router, prefix="/api")
 app.include_router(onboarding.router)
+app.include_router(roadmap.router, prefix="/api")
 app.include_router(roadmap.router)
+app.include_router(assistant.router, prefix="/api")
 app.include_router(assistant.router)
 
 
 @app.get("/api/health")
+@app.get("/health")
 async def health_check():
     return {
         "status": "healthy",
@@ -54,8 +58,3 @@ async def health_check():
         "version": "1.0.0",
     }
 
-
-# Mount built frontend dist if available
-dist_dir = Path(__file__).parent.parent.parent / "frontend" / "dist"
-if dist_dir.exists():
-    app.mount("/", StaticFiles(directory=str(dist_dir), html=True), name="static_frontend")

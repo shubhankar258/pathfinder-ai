@@ -10,7 +10,7 @@ from ..schemas.events import AdaptationEvent, AdaptationResponse
 from ..schemas.learner import LearnerProfile
 from ..schemas.roadmap import RoadmapItem, RoadmapResponse
 
-router = APIRouter(prefix="/api", tags=["Roadmap"])
+router = APIRouter(tags=["Roadmap"])
 
 
 class GenerateRoadmapRequest(BaseModel):

@@ -7,6 +7,13 @@ import {
   RoadmapItem,
   RoadmapResponse,
 } from '../types';
+import {
+  adaptRoadmapFallback,
+  explainAssistantFallback,
+  generateRoadmapFallback,
+  getQuizFallback,
+  parseGoalClient,
+} from './fallbackEngine';
 
 const API_BASE = '/api';
 
@@ -37,21 +44,31 @@ async function handleResponse<T>(res: Response, defaultAction: string): Promise<
 
 export const api = {
   async parseGoal(goal_raw: string): Promise<ParseGoalResult> {
-    const res = await fetch(`${API_BASE}/onboard/parse`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ goal_raw }),
-    });
-    return handleResponse<ParseGoalResult>(res, 'Failed to parse goal');
+    try {
+      const res = await fetch(`${API_BASE}/onboard/parse`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ goal_raw }),
+      });
+      return await handleResponse<ParseGoalResult>(res, 'Failed to parse goal');
+    } catch (err) {
+      console.warn('[Pathfinder] Server parse failed, using client NLU parser fallback:', err);
+      return parseGoalClient(goal_raw);
+    }
   },
 
   async generateRoadmap(profile: LearnerProfile): Promise<RoadmapResponse> {
-    const res = await fetch(`${API_BASE}/roadmap/generate`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ profile }),
-    });
-    return handleResponse<RoadmapResponse>(res, 'Failed to generate roadmap');
+    try {
+      const res = await fetch(`${API_BASE}/roadmap/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ profile }),
+      });
+      return await handleResponse<RoadmapResponse>(res, 'Failed to generate roadmap');
+    } catch (err) {
+      console.warn('[Pathfinder] Server roadmap generation failed, using local engine fallback:', err);
+      return generateRoadmapFallback(profile);
+    }
   },
 
   async adaptRoadmap(
@@ -59,26 +76,41 @@ export const api = {
     current_roadmap: RoadmapItem[],
     profile: LearnerProfile
   ): Promise<AdaptationResponse> {
-    const res = await fetch(`${API_BASE}/roadmap/adapt`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        event,
-        current_roadmap,
-        profile,
-      }),
-    });
-    return handleResponse<AdaptationResponse>(res, 'Failed to adapt roadmap');
+    try {
+      const res = await fetch(`${API_BASE}/roadmap/adapt`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event,
+          current_roadmap,
+          profile,
+        }),
+      });
+      return await handleResponse<AdaptationResponse>(res, 'Failed to adapt roadmap');
+    } catch (err) {
+      console.warn('[Pathfinder] Server adaptation failed, using local adaptation fallback:', err);
+      return adaptRoadmapFallback(event, current_roadmap, profile);
+    }
   },
 
   async getQuiz(skill_id: string): Promise<QuizData> {
-    const res = await fetch(`${API_BASE}/quiz/${skill_id}`);
-    return handleResponse<QuizData>(res, `Failed to fetch quiz for ${skill_id}`);
+    try {
+      const res = await fetch(`${API_BASE}/quiz/${skill_id}`);
+      return await handleResponse<QuizData>(res, `Failed to fetch quiz for ${skill_id}`);
+    } catch (err) {
+      console.warn('[Pathfinder] Server quiz fetch failed, using local quiz fallback:', err);
+      return getQuizFallback(skill_id);
+    }
   },
 
   async getDAG(): Promise<DAGData> {
-    const res = await fetch(`${API_BASE}/dag`);
-    return handleResponse<DAGData>(res, 'Failed to fetch DAG');
+    try {
+      const res = await fetch(`${API_BASE}/dag`);
+      return await handleResponse<DAGData>(res, 'Failed to fetch DAG');
+    } catch (err) {
+      console.warn('[Pathfinder] Server DAG fetch failed, returning default DAG shell:', err);
+      return { nodes: [], links: [] };
+    }
   },
 
   async askAssistant(
@@ -86,16 +118,21 @@ export const api = {
     roadmap_context: RoadmapItem[],
     profile: LearnerProfile
   ): Promise<string> {
-    const res = await fetch(`${API_BASE}/assistant/explain`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        question,
-        roadmap_context,
-        profile,
-      }),
-    });
-    const data = await handleResponse<{ answer: string }>(res, 'Failed to ask assistant');
-    return data.answer;
+    try {
+      const res = await fetch(`${API_BASE}/assistant/explain`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question,
+          roadmap_context,
+          profile,
+        }),
+      });
+      const data = await handleResponse<{ answer: string }>(res, 'Failed to ask assistant');
+      return data.answer;
+    } catch (err) {
+      console.warn('[Pathfinder] Server assistant failed, using local assistant reasoning:', err);
+      return explainAssistantFallback(question, profile);
+    }
   },
 };

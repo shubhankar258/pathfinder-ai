@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 from ..services.llm_service import generate_assistant_explanation
 
-router = APIRouter(prefix="/api/assistant", tags=["Assistant"])
+router = APIRouter(prefix="/assistant", tags=["Assistant"])
 
 
 class ExplainRequest(BaseModel):
