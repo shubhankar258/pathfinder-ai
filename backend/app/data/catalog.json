@@ -1,590 +1,1753 @@
 [
   {
     "id": "py_refresher_01",
-    "title": "Python Quickstart & Syntax Refresher",
-    "skills_taught": ["python_basics"],
-    "topics": ["python", "refresher", "core"],
+    "title": "Python Official Documentation & Tutorial",
+    "skills_taught": [
+      "python_basics"
+    ],
+    "topics": [
+      "python",
+      "refresher",
+      "core"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 5.0,
     "quality_score": 0.95,
     "is_refresher": true,
-    "url": "https://learn.pathfinder.dev/py-refresher",
-    "provider": "Pathfinder Interactive Labs"
+    "url": "https://docs.python.org/3/tutorial/",
+    "provider": "Python Software Foundation"
   },
   {
     "id": "py_foundations_full",
-    "title": "Modern Python Bootcamp: From Zero to Productive",
-    "skills_taught": ["python_basics"],
-    "topics": ["python", "programming", "basics"],
+    "title": "Modern Python Bootcamp: Python for Everybody",
+    "skills_taught": [
+      "python_basics"
+    ],
+    "topics": [
+      "python",
+      "programming",
+      "basics"
+    ],
     "format": "interactive",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 15.0,
     "quality_score": 0.92,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/py-bootcamp",
-    "provider": "OpenCourse Academy"
+    "url": "https://www.coursera.org/specializations/python",
+    "provider": "University of Michigan (Coursera)"
   },
   {
     "id": "py_video_intro",
-    "title": "Python for Absolute Beginners (Video Series)",
-    "skills_taught": ["python_basics"],
-    "topics": ["python", "video"],
+    "title": "Python Programming for Beginners (Full Course)",
+    "skills_taught": [
+      "python_basics"
+    ],
+    "topics": [
+      "python",
+      "video"
+    ],
     "format": "video",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 12.0,
     "quality_score": 0.86,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/py-video",
-    "provider": "TechCast Video"
+    "url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+    "provider": "freeCodeCamp (YouTube)"
   },
   {
     "id": "py_oop_mastery",
-    "title": "Practical Object-Oriented Python & Architecture",
-    "skills_taught": ["python_oop"],
-    "topics": ["python", "oop", "software engineering"],
+    "title": "Object-Oriented Programming (OOP) in Python 3",
+    "skills_taught": [
+      "python_oop"
+    ],
+    "topics": [
+      "python",
+      "oop",
+      "software engineering"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 10.0,
     "quality_score": 0.94,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/py-oop",
-    "provider": "Pathfinder Interactive Labs"
+    "url": "https://realpython.com/python3-object-oriented-programming/",
+    "provider": "Real Python"
   },
   {
     "id": "py_oop_adv",
-    "title": "Advanced Python Patterns & Metaprogramming",
-    "skills_taught": ["python_oop"],
-    "topics": ["python", "patterns", "advanced"],
+    "title": "Python Design Patterns & Clean Architecture",
+    "skills_taught": [
+      "python_oop"
+    ],
+    "topics": [
+      "python",
+      "patterns",
+      "advanced"
+    ],
     "format": "reading",
     "difficulty": "advanced",
     "difficulty_level": 3,
     "estimated_hours": 16.0,
     "quality_score": 0.88,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/py-patterns",
-    "provider": "DevCraft Press"
+    "url": "https://python-patterns.guide/",
+    "provider": "Python Patterns Guide"
   },
   {
     "id": "numpy_pandas_practical",
-    "title": "NumPy & Pandas for Production Data Workflows",
-    "skills_taught": ["numpy_pandas"],
-    "topics": ["python", "data manipulation", "numpy", "pandas", "nlp", "data science"],
+    "title": "NumPy & Pandas for Data Analysis",
+    "skills_taught": [
+      "numpy_pandas"
+    ],
+    "topics": [
+      "python",
+      "data manipulation",
+      "numpy",
+      "pandas",
+      "nlp",
+      "data science"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 10.0,
     "quality_score": 0.95,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/numpy-pandas",
-    "provider": "DataScience Lab"
+    "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/",
+    "provider": "Pandas Official Tutorials"
   },
   {
     "id": "pandas_deep_dive",
-    "title": "High Performance Pandas & Vectorized Analytics",
-    "skills_taught": ["numpy_pandas"],
-    "topics": ["pandas", "optimization", "analytics"],
+    "title": "Pandas Data Wrangling & Vectorized Computations",
+    "skills_taught": [
+      "numpy_pandas"
+    ],
+    "topics": [
+      "pandas",
+      "optimization",
+      "analytics"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 14.0,
     "quality_score": 0.91,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/pandas-deep",
-    "provider": "Analytics Academy"
+    "url": "https://www.kaggle.com/learn/pandas",
+    "provider": "Kaggle Learn"
   },
   {
     "id": "sql_essentials",
-    "title": "Practical SQL for Data Engineers & Scientists",
-    "skills_taught": ["sql_relational_databases"],
-    "topics": ["sql", "databases", "data engineering"],
+    "title": "SQL & Relational Database Querying",
+    "skills_taught": [
+      "sql_relational_databases"
+    ],
+    "topics": [
+      "sql",
+      "databases",
+      "data engineering"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 10.0,
-    "quality_score": 0.90,
+    "quality_score": 0.9,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/sql-essentials",
-    "provider": "DB Lab"
+    "url": "https://www.khanacademy.org/computing/computer-programming/sql",
+    "provider": "Khan Academy"
   },
   {
     "id": "git_workflow_lab",
-    "title": "Git & GitHub for Team ML Projects",
-    "skills_taught": ["git_version_control"],
-    "topics": ["git", "version control", "devops"],
+    "title": "Pro Git: Version Control & Collaborative Workflows",
+    "skills_taught": [
+      "git_version_control"
+    ],
+    "topics": [
+      "git",
+      "version control",
+      "devops"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 6.0,
     "quality_score": 0.89,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/git-lab",
-    "provider": "DevOps Hub"
+    "url": "https://git-scm.com/book/en/v2",
+    "provider": "Git Official Documentation"
   },
   {
     "id": "dsa_python",
-    "title": "Data Structures & Algorithms with Python",
-    "skills_taught": ["data_structures_algorithms"],
-    "topics": ["algorithms", "python", "computer science"],
+    "title": "Problem Solving with Algorithms & Data Structures in Python",
+    "skills_taught": [
+      "data_structures_algorithms"
+    ],
+    "topics": [
+      "algorithms",
+      "python",
+      "computer science"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 20.0,
     "quality_score": 0.93,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/dsa-py",
-    "provider": "AlgoMaster"
+    "url": "https://runestone.academy/ns/books/published/pythonds/index.html",
+    "provider": "Runestone Academy"
   },
   {
     "id": "linear_algebra_ml",
     "title": "Linear Algebra Intuition & Matrix Compute for ML",
-    "skills_taught": ["linear_algebra"],
-    "topics": ["math", "linear algebra", "matrices", "machine learning"],
+    "skills_taught": [
+      "linear_algebra"
+    ],
+    "topics": [
+      "math",
+      "linear algebra",
+      "matrices",
+      "machine learning"
+    ],
     "format": "interactive",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 15.0,
     "quality_score": 0.92,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/linalg-ml",
-    "provider": "Math For AI"
+    "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+    "provider": "MIT OpenCourseWare (Gilbert Strang)"
   },
   {
     "id": "calculus_opt_ml",
     "title": "Multivariate Calculus & Gradient Optimization",
-    "skills_taught": ["calculus_optimization"],
-    "topics": ["math", "calculus", "optimization", "gradient descent"],
+    "skills_taught": [
+      "calculus_optimization"
+    ],
+    "topics": [
+      "math",
+      "calculus",
+      "optimization",
+      "gradient descent"
+    ],
     "format": "interactive",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 12.0,
-    "quality_score": 0.90,
+    "quality_score": 0.9,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/calculus-ml",
-    "provider": "Math For AI"
+    "url": "https://www.khanacademy.org/math/multivariable-calculus",
+    "provider": "Khan Academy"
   },
   {
     "id": "stats_prob_full",
-    "title": "Statistics & Probability for Machine Learning Engineers",
-    "skills_taught": ["statistics_probability"],
-    "topics": ["statistics", "probability", "distributions", "bayes", "machine learning", "nlp"],
+    "title": "Probability & Statistics for Machine Learning",
+    "skills_taught": [
+      "statistics_probability"
+    ],
+    "topics": [
+      "statistics",
+      "probability",
+      "distributions",
+      "bayes",
+      "machine learning",
+      "nlp"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 30.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/stats-prob",
-    "provider": "StatLab AI"
+    "url": "https://www.coursera.org/learn/probability-statistics",
+    "provider": "University of London (Coursera)"
   },
   {
     "id": "stats_refresher_quick",
     "title": "Statistics & Probability Focused Refresher",
-    "skills_taught": ["statistics_probability"],
-    "topics": ["statistics", "probability", "refresher", "bayes", "hypothesis testing"],
+    "skills_taught": [
+      "statistics_probability"
+    ],
+    "topics": [
+      "statistics",
+      "probability",
+      "refresher",
+      "bayes",
+      "hypothesis testing"
+    ],
     "format": "interactive",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 4.0,
     "quality_score": 0.95,
     "is_refresher": true,
-    "url": "https://learn.pathfinder.dev/stats-refresher",
-    "provider": "StatLab AI"
+    "url": "https://statquest.org/",
+    "provider": "StatQuest with Josh Starmer"
   },
   {
     "id": "stats_video_course",
     "title": "Probability & Inferential Statistics Video Lectures",
-    "skills_taught": ["statistics_probability"],
-    "topics": ["statistics", "probability", "video"],
+    "skills_taught": [
+      "statistics_probability"
+    ],
+    "topics": [
+      "statistics",
+      "probability",
+      "video"
+    ],
     "format": "video",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 24.0,
     "quality_score": 0.88,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/stats-video",
-    "provider": "UniStats"
+    "url": "https://www.youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9",
+    "provider": "StatQuest (YouTube)"
   },
   {
     "id": "eda_vis_mastery",
     "title": "Exploratory Data Analysis & Storytelling with Data",
-    "skills_taught": ["exploratory_data_analysis"],
-    "topics": ["eda", "visualization", "seaborn", "matplotlib"],
+    "skills_taught": [
+      "exploratory_data_analysis"
+    ],
+    "topics": [
+      "eda",
+      "visualization",
+      "seaborn",
+      "matplotlib"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 12.0,
     "quality_score": 0.91,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/eda-vis",
-    "provider": "VisualData"
+    "url": "https://seaborn.pydata.org/tutorial.html",
+    "provider": "Seaborn Official Tutorials"
   },
   {
     "id": "ml_fundamentals_core",
     "title": "Applied Machine Learning Fundamentals: From Intuition to Code",
-    "skills_taught": ["ml_fundamentals"],
-    "topics": ["machine learning", "ml", "algorithms", "scikit-learn", "nlp", "modeling"],
+    "skills_taught": [
+      "ml_fundamentals"
+    ],
+    "topics": [
+      "machine learning",
+      "ml",
+      "algorithms",
+      "scikit-learn",
+      "nlp",
+      "modeling"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 25.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/ml-fundamentals",
-    "provider": "ML Institute"
+    "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "provider": "DeepLearning.AI & Stanford (Coursera)"
   },
   {
     "id": "ml_theory_book",
     "title": "Theoretical Foundations of Machine Learning",
-    "skills_taught": ["ml_fundamentals"],
-    "topics": ["machine learning", "theory", "reading"],
+    "skills_taught": [
+      "ml_fundamentals"
+    ],
+    "topics": [
+      "machine learning",
+      "theory",
+      "reading"
+    ],
     "format": "reading",
     "difficulty": "advanced",
     "difficulty_level": 3,
     "estimated_hours": 35.0,
     "quality_score": 0.87,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/ml-theory",
-    "provider": "Academic AI"
+    "url": "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/",
+    "provider": "Cambridge University Press (Shai Shalev-Shwartz)"
   },
   {
     "id": "supervised_learning_mastery",
-    "title": "Supervised Learning in Depth: Classifiers & Regressors",
-    "skills_taught": ["supervised_learning"],
-    "topics": ["supervised learning", "classification", "regression", "scikit-learn"],
+    "title": "Intro to Machine Learning & Supervised Algorithms",
+    "skills_taught": [
+      "supervised_learning"
+    ],
+    "topics": [
+      "supervised learning",
+      "classification",
+      "regression",
+      "scikit-learn"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 18.0,
     "quality_score": 0.93,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/supervised-learning",
-    "provider": "ML Institute"
+    "url": "https://www.kaggle.com/learn/intro-to-machine-learning",
+    "provider": "Kaggle Learn"
   },
   {
     "id": "unsupervised_clustering_lab",
-    "title": "Unsupervised Learning, PCA & Cluster Analysis",
-    "skills_taught": ["unsupervised_learning"],
-    "topics": ["unsupervised", "clustering", "pca", "kmeans"],
+    "title": "Unsupervised Learning, K-Means & PCA Dimensionality",
+    "skills_taught": [
+      "unsupervised_learning"
+    ],
+    "topics": [
+      "unsupervised",
+      "clustering",
+      "pca",
+      "kmeans"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 14.0,
-    "quality_score": 0.90,
+    "quality_score": 0.9,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/unsupervised-lab",
-    "provider": "ML Institute"
+    "url": "https://scikit-learn.org/stable/modules/clustering.html",
+    "provider": "Scikit-Learn Docs"
   },
   {
     "id": "model_eval_metrics",
     "title": "Rigorous Model Evaluation, Validation & Hyperparameter Tuning",
-    "skills_taught": ["model_evaluation"],
-    "topics": ["evaluation", "metrics", "cross-validation", "roc-auc", "hyperparameter tuning", "nlp"],
+    "skills_taught": [
+      "model_evaluation"
+    ],
+    "topics": [
+      "evaluation",
+      "metrics",
+      "cross-validation",
+      "roc-auc",
+      "hyperparameter tuning",
+      "nlp"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 20.0,
     "quality_score": 0.94,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/model-evaluation",
-    "provider": "ML Validation Lab"
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+    "provider": "Scikit-Learn Official Documentation"
   },
   {
     "id": "feature_eng_pipeline",
     "title": "Feature Engineering, Encodings & Leakage-Free Pipelines",
-    "skills_taught": ["feature_engineering"],
-    "topics": ["feature engineering", "preprocessing", "pipelines"],
+    "skills_taught": [
+      "feature_engineering"
+    ],
+    "topics": [
+      "feature engineering",
+      "preprocessing",
+      "pipelines"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 15.0,
     "quality_score": 0.92,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/feature-eng",
-    "provider": "FeatureCraft"
+    "url": "https://www.kaggle.com/learn/feature-engineering",
+    "provider": "Kaggle Learn"
   },
   {
     "id": "regularization_deep_dive",
-    "title": "Regularization Techniques & Overfitting Prevention",
-    "skills_taught": ["regularization"],
-    "topics": ["regularization", "bias-variance", "l1-l2"],
+    "title": "Regularization for Simplicity & Preventing Overfitting",
+    "skills_taught": [
+      "regularization"
+    ],
+    "topics": [
+      "regularization",
+      "bias-variance",
+      "l1-l2"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 10.0,
     "quality_score": 0.91,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/regularization",
-    "provider": "Math For AI"
+    "url": "https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization",
+    "provider": "Google Machine Learning Crash Course"
   },
   {
     "id": "ensemble_gradient_boost",
     "title": "Gradient Boosted Trees: XGBoost, LightGBM, and CatBoost",
-    "skills_taught": ["ensemble_methods"],
-    "topics": ["xgboost", "boosting", "ensembles", "kaggle"],
+    "skills_taught": [
+      "ensemble_methods"
+    ],
+    "topics": [
+      "xgboost",
+      "boosting",
+      "ensembles",
+      "kaggle"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 16.0,
     "quality_score": 0.95,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/gradient-boost",
-    "provider": "Competitive ML Lab"
+    "url": "https://xgboost.readthedocs.io/en/stable/",
+    "provider": "XGBoost Official Guide"
   },
   {
     "id": "deep_learning_pytorch",
     "title": "Deep Learning & Neural Networks with PyTorch",
-    "skills_taught": ["deep_learning_basics", "neural_networks"],
-    "topics": ["deep learning", "pytorch", "neural networks"],
+    "skills_taught": [
+      "deep_learning_basics",
+      "neural_networks"
+    ],
+    "topics": [
+      "deep learning",
+      "pytorch",
+      "neural networks"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 25.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/dl-pytorch",
-    "provider": "DeepLearning Lab"
+    "url": "https://pytorch.org/tutorials/beginner/basics/intro.html",
+    "provider": "PyTorch Official Tutorials"
   },
   {
     "id": "ml_portfolio_applied",
     "title": "End-to-End Applied ML Portfolio Project",
-    "skills_taught": ["portfolio_project"],
-    "topics": ["portfolio", "project", "applied ml", "nlp", "machine learning", "hands_on"],
+    "skills_taught": [
+      "portfolio_project"
+    ],
+    "topics": [
+      "portfolio",
+      "project",
+      "applied ml",
+      "nlp",
+      "machine learning",
+      "hands_on"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 30.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/ml-portfolio",
-    "provider": "Portfolio Studio"
+    "url": "https://madewithml.com/",
+    "provider": "Made With ML (Goku Mohandas)"
   },
   {
     "id": "ml_portfolio_video",
     "title": "Portfolio Building Walkthrough for ML Roles",
-    "skills_taught": ["portfolio_project"],
-    "topics": ["portfolio", "career", "video"],
+    "skills_taught": [
+      "portfolio_project"
+    ],
+    "topics": [
+      "portfolio",
+      "career",
+      "video"
+    ],
     "format": "video",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 20.0,
     "quality_score": 0.86,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/portfolio-video",
-    "provider": "CareerCast"
+    "url": "https://www.youtube.com/watch?v=NnFk1y0y7qA",
+    "provider": "freeCodeCamp (YouTube)"
   },
   {
     "id": "nlp_specialization_track",
     "title": "Natural Language Processing Specialization: Modern LLMs & Text Systems",
-    "skills_taught": ["nlp_specialization"],
-    "topics": ["nlp", "text", "transformers", "embeddings", "llm", "language processing"],
+    "skills_taught": [
+      "nlp_specialization"
+    ],
+    "topics": [
+      "nlp",
+      "text",
+      "transformers",
+      "embeddings",
+      "llm",
+      "language processing"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 35.0,
     "quality_score": 0.97,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/nlp-specialization",
-    "provider": "NLP Institute"
+    "url": "https://www.coursera.org/specializations/natural-language-processing",
+    "provider": "DeepLearning.AI (Coursera)"
   },
   {
     "id": "nlp_intermediate_course",
     "title": "Advanced NLP & Transformer Architectures",
-    "skills_taught": ["nlp_specialization"],
-    "topics": ["nlp", "transformers", "bert", "gpt"],
+    "skills_taught": [
+      "nlp_specialization"
+    ],
+    "topics": [
+      "nlp",
+      "transformers",
+      "bert",
+      "gpt"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 30.0,
     "quality_score": 0.94,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/adv-nlp",
-    "provider": "NLP Institute"
+    "url": "https://huggingface.co/learn/nlp-course/",
+    "provider": "Hugging Face NLP Academy"
   },
   {
     "id": "text_proc_embeddings_lab",
     "title": "Text Vectorization, TF-IDF & Semantic Embeddings Lab",
-    "skills_taught": ["text_processing_embeddings"],
-    "topics": ["nlp", "embeddings", "vector search", "semantic search"],
+    "skills_taught": [
+      "text_processing_embeddings"
+    ],
+    "topics": [
+      "nlp",
+      "embeddings",
+      "vector search",
+      "semantic search"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 16.0,
     "quality_score": 0.93,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/text-embeddings",
-    "provider": "VectorLab"
+    "url": "https://www.pinecone.io/learn/vector-embeddings/",
+    "provider": "Pinecone Learning Center"
   },
   {
     "id": "transformers_fine_tuning",
     "title": "Hugging Face Transformers & LLM Fine-Tuning Practical",
-    "skills_taught": ["transformers_llms"],
-    "topics": ["nlp", "transformers", "hugging face", "llm", "fine-tuning"],
+    "skills_taught": [
+      "transformers_llms"
+    ],
+    "topics": [
+      "nlp",
+      "transformers",
+      "hugging face",
+      "llm",
+      "fine-tuning"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 20.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/hf-transformers",
-    "provider": "HuggingFace Certified"
+    "url": "https://huggingface.co/docs/transformers/training",
+    "provider": "Hugging Face Official Docs"
   },
   {
     "id": "cv_specialization_track",
     "title": "Computer Vision Specialization: Deep Vision & Object Recognition",
-    "skills_taught": ["cv_specialization"],
-    "topics": ["computer vision", "cv", "image processing", "cnn", "vision"],
+    "skills_taught": [
+      "cv_specialization"
+    ],
+    "topics": [
+      "computer vision",
+      "cv",
+      "image processing",
+      "cnn",
+      "vision"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 35.0,
     "quality_score": 0.96,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/cv-specialization",
-    "provider": "VisionLab AI"
+    "url": "https://www.coursera.org/specializations/deep-learning",
+    "provider": "DeepLearning.AI (Coursera)"
   },
   {
     "id": "cv_intermediate_course",
     "title": "Applied Computer Vision with OpenCV & PyTorch",
-    "skills_taught": ["cv_specialization"],
-    "topics": ["computer vision", "opencv", "pytorch"],
+    "skills_taught": [
+      "cv_specialization"
+    ],
+    "topics": [
+      "computer vision",
+      "opencv",
+      "pytorch"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 30.0,
     "quality_score": 0.93,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/cv-opencv",
-    "provider": "VisionLab AI"
+    "url": "https://docs.opencv.org/4.x/d9/df8/tutorial_root.html",
+    "provider": "OpenCV Official Documentation"
   },
   {
     "id": "cnn_vision_models",
     "title": "Modern CNN Architectures, ResNet & Transfer Learning",
-    "skills_taught": ["cnn_image_processing"],
-    "topics": ["computer vision", "cnn", "resnet", "transfer learning"],
+    "skills_taught": [
+      "cnn_image_processing"
+    ],
+    "topics": [
+      "computer vision",
+      "cnn",
+      "resnet",
+      "transfer learning"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 18.0,
     "quality_score": 0.94,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/cnn-models",
-    "provider": "VisionLab AI"
+    "url": "https://pytorch.org/vision/stable/models.html",
+    "provider": "PyTorch Vision Documentation"
   },
   {
     "id": "yolo_segmentation_lab",
     "title": "Real-Time Object Detection with YOLOv8 & Segmentation",
-    "skills_taught": ["object_detection_segmentation"],
-    "topics": ["computer vision", "yolo", "object detection", "segmentation"],
+    "skills_taught": [
+      "object_detection_segmentation"
+    ],
+    "topics": [
+      "computer vision",
+      "yolo",
+      "object detection",
+      "segmentation"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 20.0,
     "quality_score": 0.95,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/yolo-lab",
-    "provider": "VisionLab AI"
+    "url": "https://docs.ultralytics.com/tasks/detect/",
+    "provider": "Ultralytics YOLO Documentation"
   },
   {
     "id": "time_series_forecasting_lab",
     "title": "Practical Time Series Analysis & Forecasting",
-    "skills_taught": ["time_series_forecasting"],
-    "topics": ["time series", "forecasting", "arima", "prophet"],
+    "skills_taught": [
+      "time_series_forecasting"
+    ],
+    "topics": [
+      "time series",
+      "forecasting",
+      "arima",
+      "prophet"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 18.0,
     "quality_score": 0.91,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/time-series",
-    "provider": "Forecasting Lab"
+    "url": "https://otexts.com/fpp3/",
+    "provider": "OTexts (Rob J Hyndman)"
   },
   {
     "id": "rl_basics_practical",
     "title": "Reinforcement Learning: From Q-Learning to Policy Gradients",
-    "skills_taught": ["reinforcement_learning"],
-    "topics": ["reinforcement learning", "rl", "gymnasium", "q-learning"],
+    "skills_taught": [
+      "reinforcement_learning"
+    ],
+    "topics": [
+      "reinforcement learning",
+      "rl",
+      "gymnasium",
+      "q-learning"
+    ],
     "format": "interactive",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 22.0,
     "quality_score": 0.92,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/rl-practical",
-    "provider": "RL Gym"
+    "url": "https://spinningup.openai.com/",
+    "provider": "OpenAI Education"
   },
   {
     "id": "mlops_mlflow_pipeline",
     "title": "MLOps: MLflow Tracking, Model Registry & Versioning",
-    "skills_taught": ["mlops_basics"],
-    "topics": ["mlops", "mlflow", "devops", "engineering"],
+    "skills_taught": [
+      "mlops_basics"
+    ],
+    "topics": [
+      "mlops",
+      "mlflow",
+      "devops",
+      "engineering"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 16.0,
     "quality_score": 0.94,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/mlops-mlflow",
-    "provider": "MLOps Academy"
+    "url": "https://mlflow.org/docs/latest/quickstart.html",
+    "provider": "MLflow Documentation"
   },
   {
     "id": "model_deploy_fastapi",
     "title": "Model Deployment with FastAPI, Docker & Async Inference",
-    "skills_taught": ["model_deployment_api"],
-    "topics": ["deployment", "fastapi", "docker", "api", "engineering"],
+    "skills_taught": [
+      "model_deployment_api"
+    ],
+    "topics": [
+      "deployment",
+      "fastapi",
+      "docker",
+      "api",
+      "engineering"
+    ],
     "format": "hands_on",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 18.0,
     "quality_score": 0.95,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/model-deploy",
-    "provider": "CloudDeploy Lab"
+    "url": "https://fastapi.tiangolo.com/deployment/docker/",
+    "provider": "FastAPI Official Documentation"
   },
   {
     "id": "cloud_ml_vertex_sagemaker",
     "title": "Cloud ML Engineering on GCP Vertex AI & AWS SageMaker",
-    "skills_taught": ["cloud_ml_platforms"],
-    "topics": ["cloud", "aws", "gcp", "sagemaker", "vertex ai"],
+    "skills_taught": [
+      "cloud_ml_platforms"
+    ],
+    "topics": [
+      "cloud",
+      "aws",
+      "gcp",
+      "sagemaker",
+      "vertex ai"
+    ],
     "format": "hands_on",
     "difficulty": "advanced",
     "difficulty_level": 3,
     "estimated_hours": 24.0,
     "quality_score": 0.92,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/cloud-ml",
-    "provider": "CloudDeploy Lab"
+    "url": "https://cloud.google.com/vertex-ai/docs",
+    "provider": "Google Cloud Platform"
   },
   {
     "id": "capstone_ml_prod",
     "title": "Production Machine Learning Capstone Project",
-    "skills_taught": ["capstone", "ml_engineer_target"],
-    "topics": ["capstone", "applied ml", "nlp", "computer vision", "production", "hands_on"],
+    "skills_taught": [
+      "capstone",
+      "ml_engineer_target"
+    ],
+    "topics": [
+      "capstone",
+      "applied ml",
+      "nlp",
+      "computer vision",
+      "production",
+      "hands_on"
+    ],
     "format": "hands_on",
     "difficulty": "beginner",
     "difficulty_level": 1,
     "estimated_hours": 25.0,
     "quality_score": 0.98,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/ml-capstone",
-    "provider": "Pathfinder Capstone Studio"
+    "url": "https://fullstackdeeplearning.com/",
+    "provider": "Full Stack Deep Learning"
   },
   {
     "id": "capstone_reading_guide",
     "title": "Industry Capstone Architecture Reference Guide",
-    "skills_taught": ["capstone"],
-    "topics": ["capstone", "architecture", "reading"],
+    "skills_taught": [
+      "capstone"
+    ],
+    "topics": [
+      "capstone",
+      "architecture",
+      "reading"
+    ],
     "format": "reading",
     "difficulty": "intermediate",
     "difficulty_level": 2,
     "estimated_hours": 15.0,
     "quality_score": 0.85,
     "is_refresher": false,
-    "url": "https://learn.pathfinder.dev/capstone-guide",
-    "provider": "TechCraft Press"
+    "url": "https://github.com/eugeneyan/applied-ml",
+    "provider": "Applied ML Architecture (Eugene Yan)"
+  },
+  {
+    "id": "net_foundations_full",
+    "title": "Computer Networking & Packet Analysis with Wireshark",
+    "skills_taught": [
+      "network_fundamentals"
+    ],
+    "topics": [
+      "networking",
+      "tcp/ip",
+      "dns",
+      "wireshark",
+      "cybersecurity"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 14.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://www.wireshark.org/docs/wsug_html_chunked/",
+    "provider": "Wireshark Official Documentation"
+  },
+  {
+    "id": "net_refresher_01",
+    "title": "Networking Essentials & Subnetting Series",
+    "skills_taught": [
+      "network_fundamentals"
+    ],
+    "topics": [
+      "networking",
+      "refresher",
+      "subnetting",
+      "protocols"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 4.0,
+    "quality_score": 0.93,
+    "is_refresher": true,
+    "url": "https://www.youtube.com/playlist?list=PLIhvC56v63IJVXv0GJcl9vO5bd_420PQK",
+    "provider": "NetworkChuck (YouTube)"
+  },
+  {
+    "id": "linux_admin_mastery",
+    "title": "Linux System Hardening & CLI Administration",
+    "skills_taught": [
+      "linux_administration"
+    ],
+    "topics": [
+      "linux",
+      "bash",
+      "permissions",
+      "cli",
+      "security"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 12.0,
+    "quality_score": 0.94,
+    "is_refresher": false,
+    "url": "https://linuxjourney.com/",
+    "provider": "Linux Journey"
+  },
+  {
+    "id": "linux_refresher_01",
+    "title": "Linux Command-Line & Permissions Wargame",
+    "skills_taught": [
+      "linux_administration"
+    ],
+    "topics": [
+      "linux",
+      "refresher",
+      "bash"
+    ],
+    "format": "interactive",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 4.0,
+    "quality_score": 0.91,
+    "is_refresher": true,
+    "url": "https://overthewire.org/wargames/bandit/",
+    "provider": "OverTheWire Bandit"
+  },
+  {
+    "id": "crypto_pki_handson",
+    "title": "Applied Cryptography, Hashing & PKI Infrastructure",
+    "skills_taught": [
+      "cryptography_basics"
+    ],
+    "topics": [
+      "cryptography",
+      "pki",
+      "tls",
+      "encryption",
+      "hashing"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 16.0,
+    "quality_score": 0.96,
+    "is_refresher": false,
+    "url": "https://cryptohack.org/",
+    "provider": "CryptoHack Interactive"
+  },
+  {
+    "id": "crypto_refresher_01",
+    "title": "Practical Cryptography for Developers",
+    "skills_taught": [
+      "cryptography_basics"
+    ],
+    "topics": [
+      "cryptography",
+      "refresher",
+      "encryption"
+    ],
+    "format": "reading",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 5.0,
+    "quality_score": 0.9,
+    "is_refresher": true,
+    "url": "https://cryptobook.nakov.com/",
+    "provider": "Practical Crypto Book (Svetlin Nakov)"
+  },
+  {
+    "id": "owasp_web_security_lab",
+    "title": "Web Security Defenses & OWASP Top 10 Exploits Lab",
+    "skills_taught": [
+      "web_security"
+    ],
+    "topics": [
+      "web security",
+      "owasp",
+      "sqli",
+      "xss",
+      "csrf"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 18.0,
+    "quality_score": 0.97,
+    "is_refresher": false,
+    "url": "https://portswigger.net/web-security",
+    "provider": "PortSwigger Web Security Academy"
+  },
+  {
+    "id": "web_sec_refresher_01",
+    "title": "OWASP Top 10 Vulnerability Patterns",
+    "skills_taught": [
+      "web_security"
+    ],
+    "topics": [
+      "web security",
+      "refresher",
+      "owasp"
+    ],
+    "format": "interactive",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 5.0,
+    "quality_score": 0.92,
+    "is_refresher": true,
+    "url": "https://owasp.org/www-project-top-ten/",
+    "provider": "OWASP Foundation"
+  },
+  {
+    "id": "soc_siem_threat_hunting",
+    "title": "SOC Operations, Splunk SIEM & Threat Investigation",
+    "skills_taught": [
+      "soc_siem_operations"
+    ],
+    "topics": [
+      "soc",
+      "siem",
+      "splunk",
+      "threat analysis",
+      "logs"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 20.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://tryhackme.com/path/outline/soclevel1",
+    "provider": "TryHackMe SOC Career Path"
+  },
+  {
+    "id": "soc_refresher_01",
+    "title": "Splunk SIEM Querying & Log Correlation Fundamentals",
+    "skills_taught": [
+      "soc_siem_operations"
+    ],
+    "topics": [
+      "soc",
+      "refresher",
+      "siem",
+      "logs"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 6.0,
+    "quality_score": 0.89,
+    "is_refresher": true,
+    "url": "https://www.splunk.com/en_us/training/free-courses/splunk-fundamentals-1.html",
+    "provider": "Splunk Free Training"
+  },
+  {
+    "id": "ethical_hacking_nmap_metasploit",
+    "title": "Practical Ethical Hacking & Penetration Testing",
+    "skills_taught": [
+      "penetration_testing_basics"
+    ],
+    "topics": [
+      "penetration testing",
+      "nmap",
+      "metasploit",
+      "vulnerability assessment",
+      "ethical hacking"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 22.0,
+    "quality_score": 0.96,
+    "is_refresher": false,
+    "url": "https://www.hackthebox.com/hacker/starting-point",
+    "provider": "Hack The Box Starting Point"
+  },
+  {
+    "id": "pen_test_refresher_01",
+    "title": "Port Scanning & Network Reconnaissance Reference",
+    "skills_taught": [
+      "penetration_testing_basics"
+    ],
+    "topics": [
+      "penetration testing",
+      "refresher",
+      "recon"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 6.0,
+    "quality_score": 0.91,
+    "is_refresher": true,
+    "url": "https://nmap.org/book/man.html",
+    "provider": "Nmap Official Reference Guide"
+  },
+  {
+    "id": "incident_response_forensics_lab",
+    "title": "Digital Forensics, Malware Triage & Incident Handling",
+    "skills_taught": [
+      "incident_response"
+    ],
+    "topics": [
+      "incident response",
+      "forensics",
+      "malware",
+      "threat hunting"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 24.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://cyberdefenders.org/",
+    "provider": "CyberDefenders Blue Team Labs"
+  },
+  {
+    "id": "ir_refresher_01",
+    "title": "SANS Incident Response Methodology & Evidence Preservation",
+    "skills_taught": [
+      "incident_response"
+    ],
+    "topics": [
+      "incident response",
+      "refresher",
+      "forensics"
+    ],
+    "format": "reading",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 6.0,
+    "quality_score": 0.88,
+    "is_refresher": true,
+    "url": "https://www.sans.org/white-papers/33901/",
+    "provider": "SANS Institute"
+  },
+  {
+    "id": "cloud_security_zero_trust",
+    "title": "Cloud Security Architecture & Zero Trust Defense",
+    "skills_taught": [
+      "cloud_security"
+    ],
+    "topics": [
+      "cloud security",
+      "zero trust",
+      "iam",
+      "aws",
+      "containers"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 20.0,
+    "quality_score": 0.94,
+    "is_refresher": false,
+    "url": "https://cloudsecurityalliance.org/research/guidance/",
+    "provider": "Cloud Security Alliance (CSA)"
+  },
+  {
+    "id": "cloud_sec_refresher_01",
+    "title": "AWS IAM Security Best Practices & Policies",
+    "skills_taught": [
+      "cloud_security"
+    ],
+    "topics": [
+      "cloud security",
+      "refresher",
+      "iam"
+    ],
+    "format": "interactive",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 5.0,
+    "quality_score": 0.9,
+    "is_refresher": true,
+    "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+    "provider": "AWS Security Documentation"
+  },
+  {
+    "id": "cyber_defense_capstone_project",
+    "title": "Enterprise Cybersecurity Defense & Audit Capstone",
+    "skills_taught": [
+      "cybersecurity_capstone"
+    ],
+    "topics": [
+      "cybersecurity",
+      "capstone",
+      "red team",
+      "blue team",
+      "audit"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 35.0,
+    "quality_score": 0.98,
+    "is_refresher": false,
+    "url": "https://www.antisyphontraining.com/",
+    "provider": "Antisyphon Security Labs"
+  },
+  {
+    "id": "html_css_responsive_mastery",
+    "title": "Modern HTML5, Flexbox & CSS Grid Mastery",
+    "skills_taught": [
+      "html_css_modern"
+    ],
+    "topics": [
+      "html",
+      "css",
+      "responsive design",
+      "flexbox",
+      "grid"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 12.0,
+    "quality_score": 0.94,
+    "is_refresher": false,
+    "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML",
+    "provider": "MDN Web Docs (Mozilla)"
+  },
+  {
+    "id": "html_css_refresher_01",
+    "title": "CSS Layouts & Responsive Patterns by Google",
+    "skills_taught": [
+      "html_css_modern"
+    ],
+    "topics": [
+      "html",
+      "css",
+      "refresher"
+    ],
+    "format": "interactive",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 4.0,
+    "quality_score": 0.91,
+    "is_refresher": true,
+    "url": "https://web.dev/learn/css/",
+    "provider": "web.dev (Google Developers)"
+  },
+  {
+    "id": "js_ts_modern_bootcamp",
+    "title": "Modern JavaScript & TypeScript Architecture",
+    "skills_taught": [
+      "javascript_typescript"
+    ],
+    "topics": [
+      "javascript",
+      "typescript",
+      "es6",
+      "async",
+      "types"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 18.0,
+    "quality_score": 0.96,
+    "is_refresher": false,
+    "url": "https://javascript.info/",
+    "provider": "The Modern JavaScript Tutorial"
+  },
+  {
+    "id": "js_ts_refresher_01",
+    "title": "TypeScript Handbook & Strict Type System",
+    "skills_taught": [
+      "javascript_typescript"
+    ],
+    "topics": [
+      "javascript",
+      "typescript",
+      "refresher"
+    ],
+    "format": "hands_on",
+    "difficulty": "beginner",
+    "difficulty_level": 1,
+    "estimated_hours": 5.0,
+    "quality_score": 0.92,
+    "is_refresher": true,
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "provider": "TypeScript Official Documentation"
+  },
+  {
+    "id": "react_component_architecture_lab",
+    "title": "React 18 Component Architecture & Hooks Deep Dive",
+    "skills_taught": [
+      "react_frontend"
+    ],
+    "topics": [
+      "react",
+      "frontend",
+      "hooks",
+      "state management",
+      "javascript"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 20.0,
+    "quality_score": 0.97,
+    "is_refresher": false,
+    "url": "https://react.dev/learn",
+    "provider": "React.dev Official Documentation"
+  },
+  {
+    "id": "react_refresher_01",
+    "title": "React API Reference & Component Lifecycle",
+    "skills_taught": [
+      "react_frontend"
+    ],
+    "topics": [
+      "react",
+      "refresher",
+      "hooks"
+    ],
+    "format": "interactive",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 5.0,
+    "quality_score": 0.9,
+    "is_refresher": true,
+    "url": "https://react.dev/reference/react",
+    "provider": "React.dev Official Reference"
+  },
+  {
+    "id": "rest_microservice_api_design",
+    "title": "RESTful API Engineering with FastAPI & Node.js",
+    "skills_taught": [
+      "backend_apis_node_python"
+    ],
+    "topics": [
+      "backend",
+      "apis",
+      "rest",
+      "fastapi",
+      "node.js"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 18.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://fastapi.tiangolo.com/tutorial/",
+    "provider": "FastAPI Official Documentation"
+  },
+  {
+    "id": "api_refresher_01",
+    "title": "HTTP Overview, Request Methods & Status Codes",
+    "skills_taught": [
+      "backend_apis_node_python"
+    ],
+    "topics": [
+      "backend",
+      "refresher",
+      "api"
+    ],
+    "format": "reading",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 4.0,
+    "quality_score": 0.89,
+    "is_refresher": true,
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+    "provider": "MDN Web Docs (Mozilla)"
+  },
+  {
+    "id": "mongodb_redis_caching_mastery",
+    "title": "NoSQL Data Modeling with MongoDB & Redis In-Memory Caching",
+    "skills_taught": [
+      "nosql_databases"
+    ],
+    "topics": [
+      "mongodb",
+      "nosql",
+      "redis",
+      "caching",
+      "databases"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 16.0,
+    "quality_score": 0.93,
+    "is_refresher": false,
+    "url": "https://learn.mongodb.com/",
+    "provider": "MongoDB University"
+  },
+  {
+    "id": "nosql_refresher_01",
+    "title": "Redis In-Memory Data Structures & Caching Quickstart",
+    "skills_taught": [
+      "nosql_databases"
+    ],
+    "topics": [
+      "nosql",
+      "refresher",
+      "mongodb"
+    ],
+    "format": "interactive",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 5.0,
+    "quality_score": 0.88,
+    "is_refresher": true,
+    "url": "https://redis.io/docs/latest/develop/get-started/",
+    "provider": "Redis Official Documentation"
+  },
+  {
+    "id": "system_design_jwt_auth_masterclass",
+    "title": "Authentication, OAuth2 & Scalable Web System Design",
+    "skills_taught": [
+      "auth_security_system_design"
+    ],
+    "topics": [
+      "authentication",
+      "oauth2",
+      "jwt",
+      "system design",
+      "security"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 24.0,
+    "quality_score": 0.97,
+    "is_refresher": false,
+    "url": "https://github.com/donnemartin/system-design-primer",
+    "provider": "The System Design Primer (Donne Martin)"
+  },
+  {
+    "id": "auth_refresher_01",
+    "title": "JSON Web Tokens (JWT) Architecture & Introduction",
+    "skills_taught": [
+      "auth_security_system_design"
+    ],
+    "topics": [
+      "auth",
+      "refresher",
+      "jwt"
+    ],
+    "format": "interactive",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 5.0,
+    "quality_score": 0.91,
+    "is_refresher": true,
+    "url": "https://jwt.io/introduction",
+    "provider": "JWT.io by Auth0"
+  },
+  {
+    "id": "fullstack_production_capstone_project",
+    "title": "Full Stack Open: Deep Dive into Modern Web Development",
+    "skills_taught": [
+      "fullstack_capstone"
+    ],
+    "topics": [
+      "fullstack",
+      "capstone",
+      "react",
+      "fastapi",
+      "postgres",
+      "docker"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 35.0,
+    "quality_score": 0.98,
+    "is_refresher": false,
+    "url": "https://fullstackopen.com/en/",
+    "provider": "University of Helsinki"
+  },
+  {
+    "id": "docker_container_mastery_lab",
+    "title": "Docker Containerization & Multi-Stage Builds",
+    "skills_taught": [
+      "docker_containers"
+    ],
+    "topics": [
+      "docker",
+      "containers",
+      "devops",
+      "linux"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 14.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://docs.docker.com/get-started/",
+    "provider": "Docker Official Documentation"
+  },
+  {
+    "id": "docker_refresher_01",
+    "title": "Play with Docker Interactive Sandbox",
+    "skills_taught": [
+      "docker_containers"
+    ],
+    "topics": [
+      "docker",
+      "refresher",
+      "containers"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 4.0,
+    "quality_score": 0.9,
+    "is_refresher": true,
+    "url": "https://labs.play-with-docker.com/",
+    "provider": "Docker Community Labs"
+  },
+  {
+    "id": "k8s_cluster_orchestration_handson",
+    "title": "Kubernetes Administration & Cluster Orchestration",
+    "skills_taught": [
+      "kubernetes_orchestration"
+    ],
+    "topics": [
+      "kubernetes",
+      "k8s",
+      "helm",
+      "orchestration",
+      "cloud"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 22.0,
+    "quality_score": 0.96,
+    "is_refresher": false,
+    "url": "https://kubernetes.io/docs/tutorials/",
+    "provider": "Kubernetes Official Documentation"
+  },
+  {
+    "id": "k8s_refresher_01",
+    "title": "Kubernetes Core Concepts (Pods, Services, Ingress)",
+    "skills_taught": [
+      "kubernetes_orchestration"
+    ],
+    "topics": [
+      "kubernetes",
+      "refresher",
+      "k8s"
+    ],
+    "format": "interactive",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 6.0,
+    "quality_score": 0.91,
+    "is_refresher": true,
+    "url": "https://kubernetes.io/docs/concepts/",
+    "provider": "Kubernetes Official Reference"
+  },
+  {
+    "id": "cicd_pipeline_actions_lab",
+    "title": "CI/CD Automation with GitHub Actions Workflows",
+    "skills_taught": [
+      "cicd_automation"
+    ],
+    "topics": [
+      "cicd",
+      "github actions",
+      "automation",
+      "devops",
+      "git"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 16.0,
+    "quality_score": 0.94,
+    "is_refresher": false,
+    "url": "https://docs.github.com/en/actions",
+    "provider": "GitHub Actions Documentation"
+  },
+  {
+    "id": "cicd_refresher_01",
+    "title": "Understanding GitHub Actions & Workflow Syntax",
+    "skills_taught": [
+      "cicd_automation"
+    ],
+    "topics": [
+      "cicd",
+      "refresher",
+      "github actions"
+    ],
+    "format": "hands_on",
+    "difficulty": "intermediate",
+    "difficulty_level": 2,
+    "estimated_hours": 4.0,
+    "quality_score": 0.89,
+    "is_refresher": true,
+    "url": "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions",
+    "provider": "GitHub Docs"
+  },
+  {
+    "id": "terraform_iac_production_cloud",
+    "title": "Infrastructure as Code with Terraform Tutorials",
+    "skills_taught": [
+      "iac_terraform"
+    ],
+    "topics": [
+      "terraform",
+      "iac",
+      "cloud infrastructure",
+      "hcl"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 20.0,
+    "quality_score": 0.95,
+    "is_refresher": false,
+    "url": "https://developer.hashicorp.com/terraform/tutorials",
+    "provider": "HashiCorp Official Tutorials"
+  },
+  {
+    "id": "terraform_refresher_01",
+    "title": "Terraform HCL Configuration Language Reference",
+    "skills_taught": [
+      "iac_terraform"
+    ],
+    "topics": [
+      "terraform",
+      "refresher",
+      "iac"
+    ],
+    "format": "reading",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 5.0,
+    "quality_score": 0.88,
+    "is_refresher": true,
+    "url": "https://developer.hashicorp.com/terraform/language",
+    "provider": "HashiCorp Documentation"
+  },
+  {
+    "id": "aws_gcp_cloud_solutions_architecture",
+    "title": "AWS Cloud Solutions Architecture & Skill Builder",
+    "skills_taught": [
+      "cloud_infra_aws_gcp"
+    ],
+    "topics": [
+      "aws",
+      "gcp",
+      "cloud architecture",
+      "networking",
+      "security"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 24.0,
+    "quality_score": 0.96,
+    "is_refresher": false,
+    "url": "https://explore.skillbuilder.aws/",
+    "provider": "AWS Training & Certification"
+  },
+  {
+    "id": "cloud_arch_refresher_01",
+    "title": "AWS Well-Architected Framework & Pillar Guidelines",
+    "skills_taught": [
+      "cloud_infra_aws_gcp"
+    ],
+    "topics": [
+      "cloud",
+      "refresher",
+      "aws",
+      "vpc"
+    ],
+    "format": "interactive",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 6.0,
+    "quality_score": 0.9,
+    "is_refresher": true,
+    "url": "https://aws.amazon.com/architecture/well-architected/",
+    "provider": "AWS Architecture Center"
+  },
+  {
+    "id": "gitops_cloud_platform_capstone_project",
+    "title": "GitOps Continuous Delivery with Argo CD & Kubernetes",
+    "skills_taught": [
+      "devops_capstone"
+    ],
+    "topics": [
+      "devops",
+      "capstone",
+      "kubernetes",
+      "terraform",
+      "gitops",
+      "prometheus"
+    ],
+    "format": "hands_on",
+    "difficulty": "advanced",
+    "difficulty_level": 3,
+    "estimated_hours": 35.0,
+    "quality_score": 0.98,
+    "is_refresher": false,
+    "url": "https://argo-cd.readthedocs.io/en/stable/",
+    "provider": "Argo Project Documentation"
   }
 ]

@@ -21,9 +21,9 @@ def main():
     catalog = load_catalog(str(data_dir / "catalog.json"))
     print(f"[OK] Catalog loaded with {len(catalog)} resources.")
 
-    # 3. Construct canonical demo persona Priya (Section 9)
-    priya_profile = LearnerProfile(
-        user_id="priya_demo",
+    # 3. Construct canonical demo persona (Section 9)
+    demo_profile = LearnerProfile(
+        user_id="demo_user",
         goal_raw="I want to become a Machine Learning Engineer in six months. I know basic Python.",
         target_role="Machine Learning Engineer",
         target_skill="ml_engineer_target",
@@ -37,8 +37,8 @@ def main():
     )
 
     # 4. Generate Roadmap
-    roadmap_resp = build_roadmap(graph, catalog, priya_profile)
-    print("\n--- PRIYA'S GENERATED ROADMAP ---")
+    roadmap_resp = build_roadmap(graph, catalog, demo_profile)
+    print("\n--- DEMO USER'S GENERATED ROADMAP ---")
     total_hours = 0.0
     for idx, item in enumerate(roadmap_resp.roadmap, 1):
         res_title = item.recommended_resource.title if item.recommended_resource else f"(Covered by {item.covered_by_resource_id})"
@@ -47,7 +47,7 @@ def main():
 
     print("-" * 70)
     print(f"Computed Total Hours: {total_hours:.1f} hours (Target: ~190h)")
-    print(f"Calculated Duration Range: {roadmap_resp.estimated_duration_range.min_weeks} - {roadmap_resp.estimated_duration_range.max_weeks} weeks at {priya_profile.weekly_hours} hrs/week")
+    print(f"Calculated Duration Range: {roadmap_resp.estimated_duration_range.min_weeks} - {roadmap_resp.estimated_duration_range.max_weeks} weeks at {demo_profile.weekly_hours} hrs/week")
     print(f"Next Best Action: {roadmap_resp.next_best_action.skill_name} ({roadmap_resp.next_best_action.reasoning})")
 
     # Verify ~190 hours target (allow ±10 hours tolerance)
@@ -59,14 +59,14 @@ def main():
     assert py_item.is_refresher, "python_basics should be a refresher for FAMILIAR tier!"
     print("[PASS] Tiered confidence verified: FAMILIAR -> REFRESHER mode preserved.")
 
-    # 5. Simulate Checkpoint Failure (The Canonical Priya Demo Beat)
+    # 5. Simulate Checkpoint Failure (The Canonical Demo Beat)
     print("\n--- SIMULATING CHECKPOINT FAILURE (Statistics & Probability Quiz = 33%) ---")
     fail_event = AdaptationEvent(
         event_type=AdaptationEventType.CHECKPOINT_FAILED,
         skill_id="statistics_probability",
         score=0.33,
     )
-    adapt_resp = handle_adaptation(fail_event, roadmap_resp.roadmap, priya_profile, catalog, graph)
+    adapt_resp = handle_adaptation(fail_event, roadmap_resp.roadmap, demo_profile, catalog, graph)
     
     print(f"Adaptation Action: {adapt_resp.adaptation.action}")
     print(f"Adaptation Reason: {adapt_resp.adaptation.reason}")

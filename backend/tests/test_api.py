@@ -24,9 +24,9 @@ async def test_parse_goal_api():
 
 @pytest.mark.anyio
 async def test_generate_and_adapt_api():
-    priya_payload = {
+    demo_payload = {
         "profile": {
-            "user_id": "priya_demo",
+            "user_id": "demo_user",
             "goal_raw": "I want to become a Machine Learning Engineer in six months. I know basic Python.",
             "target_role": "Machine Learning Engineer",
             "target_skill": "ml_engineer_target",
@@ -40,7 +40,7 @@ async def test_generate_and_adapt_api():
         }
     }
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
-        gen_resp = await ac.post("/api/roadmap/generate", json=priya_payload)
+        gen_resp = await ac.post("/api/roadmap/generate", json=demo_payload)
         assert gen_resp.status_code == 200
         gen_data = gen_resp.json()
         assert gen_data["estimated_total_hours"] == 190.0
@@ -53,7 +53,7 @@ async def test_generate_and_adapt_api():
                 "score": 0.33,
             },
             "current_roadmap": gen_data["roadmap"],
-            "profile": priya_payload["profile"],
+            "profile": demo_payload["profile"],
         }
         adapt_resp = await ac.post("/api/roadmap/adapt", json=adapt_payload)
         assert adapt_resp.status_code == 200
@@ -65,6 +65,23 @@ async def test_generate_and_adapt_api():
 async def test_quiz_endpoint():
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
         resp = await ac.get("/api/quiz/statistics_probability")
+        assert resp.status_code == 200
+        data = resp.json()
+        assert len(data["questions"]) == 3
+
+        # Test new network fundamentals checkpoint
+        net_resp = await ac.get("/api/quiz/network_fundamentals")
+        assert net_resp.status_code == 200
+        net_data = net_resp.json()
+        assert len(net_data["questions"]) == 3
+
+@pytest.mark.anyio
+async def test_cybersecurity_parse_api():
+    async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as ac:
+        resp = await ac.post("/api/onboard/parse", json={"goal_raw": "I want to learn cybersecurity in 12 months."})
     assert resp.status_code == 200
     data = resp.json()
-    assert len(data["questions"]) == 3
+    assert data["profile"]["target_role"] == "Cybersecurity Specialist"
+    assert data["profile"]["target_skill"] == "cybersecurity_engineer_target"
+    assert data["profile"]["timeline_weeks"] == 52
+    assert "weekly_hours" in data["missing_fields"]

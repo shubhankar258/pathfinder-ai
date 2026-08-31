@@ -19,9 +19,9 @@ def catalog():
     return load_catalog(str(data_dir / "catalog.json"))
 
 @pytest.fixture
-def priya_roadmap(graph, catalog):
-    priya = LearnerProfile(
-        user_id="priya_demo",
+def demo_roadmap(graph, catalog):
+    demo_learner = LearnerProfile(
+        user_id="demo_user",
         goal_raw="I want to become a Machine Learning Engineer in six months. I know basic Python.",
         target_role="Machine Learning Engineer",
         target_skill="ml_engineer_target",
@@ -33,10 +33,10 @@ def priya_roadmap(graph, catalog):
         interest_domain="NLP",
         skill_confidence={"python_basics": ConfidenceTier.FAMILIAR},
     )
-    return priya, build_roadmap(graph, catalog, priya).roadmap
+    return demo_learner, build_roadmap(graph, catalog, demo_learner).roadmap
 
-def test_checkpoint_failure_adaptation(graph, catalog, priya_roadmap):
-    priya, roadmap = priya_roadmap
+def test_checkpoint_failure_adaptation(graph, catalog, demo_roadmap):
+    demo_learner, roadmap = demo_roadmap
     # Mark Python basics as completed
     roadmap[0].state = RoadmapNodeState.COMPLETED
 
@@ -45,7 +45,7 @@ def test_checkpoint_failure_adaptation(graph, catalog, priya_roadmap):
         skill_id="statistics_probability",
         score=0.33,
     )
-    res = handle_adaptation(event, roadmap, priya, catalog, graph)
+    res = handle_adaptation(event, roadmap, demo_learner, catalog, graph)
 
     # 1. Completed Python node preserved
     assert res.updated_roadmap[0].state == RoadmapNodeState.COMPLETED
@@ -64,8 +64,8 @@ def test_checkpoint_failure_adaptation(graph, catalog, priya_roadmap):
     # 4. Next best action is the statistics refresher
     assert res.next_best_action.skill_id == "statistics_probability"
 
-def test_interest_change_preserves_completed(graph, catalog, priya_roadmap):
-    priya, roadmap = priya_roadmap
+def test_interest_change_preserves_completed(graph, catalog, demo_roadmap):
+    demo_learner, roadmap = demo_roadmap
     # Mark first 3 items completed
     roadmap[0].state = RoadmapNodeState.COMPLETED
     roadmap[1].state = RoadmapNodeState.COMPLETED
@@ -75,7 +75,7 @@ def test_interest_change_preserves_completed(graph, catalog, priya_roadmap):
         event_type=AdaptationEventType.INTEREST_CHANGED,
         new_interest_domain="Computer Vision",
     )
-    res = handle_adaptation(event, roadmap, priya, catalog, graph)
+    res = handle_adaptation(event, roadmap, demo_learner, catalog, graph)
 
     # Completed items are preserved
     assert res.updated_roadmap[0].state == RoadmapNodeState.COMPLETED
