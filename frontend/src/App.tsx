@@ -79,30 +79,30 @@ export const App: React.FC = () => {
   const navItems: CardNavItem[] = [
     {
       label: 'Curriculum Engine',
-      bgColor: 'rgba(38, 24, 16, 0.95)',
-      textColor: '#ffffff',
+      bgColor: '#ffffff',
+      textColor: '#0f172a',
       links: [
-        { label: '36 Skill DAG Graph', ariaLabel: '36 Skill DAG Graph' },
+        { label: '61-Node Validated DAG Graph', ariaLabel: 'Skill DAG Graph' },
         { label: 'Deterministic Kahn Sort', ariaLabel: 'Kahn Topological Sort' },
-        { label: 'Gap Traversal Engine', ariaLabel: 'Gap Traversal' },
+        { label: 'Multi-Domain Gap Traversal', ariaLabel: 'Gap Traversal' },
       ],
     },
     {
-      label: 'Adaptive System',
-      bgColor: 'rgba(25, 30, 45, 0.95)',
-      textColor: '#ffffff',
+      label: 'Adaptive Engine',
+      bgColor: '#ffffff',
+      textColor: '#0f172a',
       links: [
-        { label: 'Statistics Checkpoint Quiz', ariaLabel: 'Checkpoint Quiz' },
+        { label: 'Skill Checkpoint Quizzes', ariaLabel: 'Checkpoint Quiz' },
         { label: '5-Factor Scoring (TimeFit)', ariaLabel: '5-Factor Recommender' },
-        { label: 'Track Swap (NLP ↔ Vision)', ariaLabel: 'Track Swap' },
+        { label: 'Dynamic Track Switcher', ariaLabel: 'Track Swap' },
       ],
     },
     {
       label: 'Resources & Docs',
-      bgColor: 'rgba(28, 20, 36, 0.95)',
-      textColor: '#ffffff',
+      bgColor: '#ffffff',
+      textColor: '#0f172a',
       links: [
-        { label: 'Priya Canonical Flow', onClick: handleReset, ariaLabel: 'Priya Persona Flow' },
+        { label: 'Reset / Demo Flow', onClick: handleReset, ariaLabel: 'Demo Learning Flow' },
         { label: 'FastAPI Interactive Docs', href: 'http://127.0.0.1:8000/docs', ariaLabel: 'API Docs' },
         { label: 'Backend Health Check', href: 'http://127.0.0.1:8000/api/health', ariaLabel: 'API Health' },
       ],
@@ -111,7 +111,7 @@ export const App: React.FC = () => {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-      {/* Interactive WebGL Threads Background from React Bits */}
+      {/* Interactive WebGL Threads Background (Calm Subtle Ethereal Tint) */}
       <div
         style={{
           position: 'fixed',
@@ -121,19 +121,19 @@ export const App: React.FC = () => {
           height: '100vh',
           pointerEvents: 'none',
           zIndex: 0,
-          opacity: 0.38,
+          opacity: 0.12,
         }}
       >
         <Threads
-          color={[0.98, 0.45, 0.09]}
-          amplitude={1.25}
-          distance={0.12}
+          color={[0.15, 0.4, 0.9]}
+          amplitude={0.9}
+          distance={0.15}
           enableMouseInteraction={true}
         />
       </div>
 
-      {/* React Bits CardNav Header */}
-      <header style={{ padding: '20px 24px 10px', position: 'sticky', top: 0, zIndex: 200 }}>
+      {/* Clean Light CardNav Header */}
+      <header style={{ padding: '16px 24px 8px', position: 'sticky', top: 0, zIndex: 200 }}>
         <CardNav
           logo={
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -142,24 +142,24 @@ export const App: React.FC = () => {
                   width: '32px',
                   height: '32px',
                   borderRadius: '8px',
-                  background: 'linear-gradient(135deg, #f97316, #f59e0b)',
+                  background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 0 14px var(--primary-glow)',
+                  boxShadow: '0 2px 8px rgba(37, 99, 235, 0.25)',
                 }}
               >
                 <Compass size={18} color="#ffffff" />
               </div>
-              <span style={{ fontSize: '1.15rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#ffffff' }}>
+              <span style={{ fontSize: '1.15rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#0f172a' }}>
                 Pathfinder
               </span>
               <span
                 className="badge"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.16)',
-                  color: '#fbbf24',
-                  border: '1px solid rgba(245, 158, 11, 0.35)',
+                  background: '#eff6ff',
+                  color: '#1d4ed8',
+                  border: '1px solid #bfdbfe',
                   fontSize: '0.66rem',
                   padding: '2px 7px',
                 }}
@@ -169,11 +169,11 @@ export const App: React.FC = () => {
             </div>
           }
           items={navItems}
-          baseColor="rgba(17, 20, 30, 0.92)"
-          menuColor="#fdba74"
-          buttonBgColor="#f97316"
+          baseColor="#ffffff"
+          menuColor="#0f172a"
+          buttonBgColor="#2563eb"
           buttonTextColor="#ffffff"
-          ctaText={screen === 'discovery' ? 'Priya Demo' : 'New Goal'}
+          ctaText={screen === 'discovery' ? 'Demo Flow' : 'New Goal'}
           onCtaClick={handleReset}
         />
       </header>
